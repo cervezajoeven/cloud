@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $config['base_url'] = 'http://192.168.0.114/sanisidro/';
 $url = $_SERVER['SERVER_NAME'];
 $scheme = $_SERVER['REQUEST_SCHEME'];
-$school = "cms";
+$school = "sics";
 // echo "<pre>";
 // print_r();
 // exit();
