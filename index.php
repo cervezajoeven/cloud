@@ -41,6 +41,20 @@
     </div>
 </div>
 <?php
-//phpinfo();
-header("Location: http://campuscloudph.com/sics");
+$url = $_SERVER['SERVER_NAME'];
+$scheme = $_SERVER['REQUEST_SCHEME'];
+$school = "sics";
+// echo "<pre>";
+// print_r();
+// exit();
+if (strpos($url,'localhost') !== false) {
+    header("Location: http://localhost/".$school);
+} elseif(strpos($url,'192.') !== false||strpos($url,'172.') !== false) {
+    // $config['base_url'] = 'http://'.$url.'/'.$school.'/';
+    header("Location: http://".$url."/".$school);
+} else{
+    // $config['base_url'] = $scheme."://".$url.'/'.$school.'/';
+    header("Location: ".$scheme."://".$url."/".$school);
+}
+
 ?>
