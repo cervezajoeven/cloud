@@ -86,21 +86,21 @@
                             <div class="modal-content">
                               <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Edit Schedule</h4>
+                                <h4 class="modal-title">Details</h4>
                               </div>
                               <div class="modal-body">
                                 <table class="edit_table table">
                                     <tr>
                                         <td>Topic</td>
-                                        <td><input required="" id="edit_topic" type="text" name="topic" class="form-control"></td>
+                                        <td style="font-weight: bold" id="topic_label"></td>
                                     </tr>
                                     <tr>
-                                        <td>Section</td>
-                                        <td><input required="" id="edit_sections" type="text" name="" class="form-control"></td>
+                                        <td>Start : </td>
+                                        <td id="start_date"></td>
                                     </tr>
                                     <tr>
-                                        <td>Color</td>
-                                        <td><input required="" id="edit_color" type="text" name="" class="jscolor form-control"></td>
+                                        <td>End : </td>
+                                        <td id="end_date"></td>
                                     </tr>
                                 </table>
                                 <input type="hidden" id="edit_selected_section" name="">
@@ -178,7 +178,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var current_arg;
     var edit_event = [];
     <?php if(!empty($data['schedule'])): ?>
+        // var feed = '<?php echo htmlspecialchars_decode($data['schedule'][0]['schedule']) ?>';
         var feed = '<?php echo htmlspecialchars_decode($data['schedule'][0]['schedule']) ?>';
+        console.log(<?php echo $general_class->data['lesson_schedule']?>);
     <?php else: ?>
         var feed = "[]";
     <?php endif; ?>
@@ -191,21 +193,21 @@ document.addEventListener('DOMContentLoaded', function() {
         header: {
             left: 'prev,next today',
             center: 'title',
-            right: 'timeGridWeek,listWeek'
+            right: 'dayGridMonth,timeGridWeek,listWeek'
         },
         eventRender: function(info) {
             
         },
         defaultDate: '<?php echo date('Y-m-d'); ?>',
         navLinks: true, // can click day/week names to navigate views
-        defaultView: 'timeGridWeek',
+        defaultView: 'dayGridMonth',
         weekNumbers: true,
         weekNumbersWithinDays: true,
         weekNumberCalculation: 'ISO',
         minTime: "05:00:00",
         maxTime: "18:00:00",
         hiddenDays: [0,6],
-        selectable: true,
+        selectable: false,
         selectMirror: true,
         select: function(arg) {
             $('#modal').modal('show');
@@ -222,10 +224,11 @@ document.addEventListener('DOMContentLoaded', function() {
             var edit_section_id = custom_data.section_id;
             var edit_topic = custom_data.topic;
             var edit_color = info.event.backgroundColor;
-
-            $("#edit_topic").val(edit_topic);
-            $("#edit_sections").val(edit_section);
-            $("#edit_color").val(edit_color);
+            console.log(info.event);
+            var start_date = info.event.start.toLocaleString();
+            $("#topic_label").text(info.event.title);
+            $("#start_date").text(start_date);
+            $("#end_date").text(info.event.end);
 
             // document.getElementById('edit_color').jscolor.fromString(edit_color);
             $("#edit_color").css("background-color",edit_color);
@@ -233,9 +236,9 @@ document.addEventListener('DOMContentLoaded', function() {
             current_arg = info;
         },
 
-        editable: true,
+        editable: false,
         eventLimit: true, // allow "more" link when too many events
-        events: feed,
+        events: <?php echo $general_class->data['lesson_schedule']?>,
     });
 
     calendar.render();

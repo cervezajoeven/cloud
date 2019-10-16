@@ -183,6 +183,7 @@ class Quiz_model extends BEN_Model {
 
         // $this->db->where("quiz_type",'quiz');
         $this->db->where("optical_answer_sheet.account_id",$this->session->userdata('id'));
+        $this->db->where("optical_answer_sheet.deleted",0);
         $this->db->order_by("id","desc");
         $query = $this->db->get();
         $return = $query->result_array();

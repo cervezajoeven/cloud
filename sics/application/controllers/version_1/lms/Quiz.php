@@ -444,6 +444,12 @@ class Quiz extends BEN_General {
                 $optical['id'] = $optical_data['id'];
                 $optical['deleted'] = 1;
                 $this->quiz_model->update("optical",$optical);
+                $quiz_assign_data = array(
+                    "quiz_id"=>$data['id'],
+                    "deleted"=>1,
+                );
+                $this->quiz_model->sms_update("quiz_assign","quiz_id",$quiz_assign_data);
+                $this->quiz_model->sms_update("optical_answer_sheet","quiz_id",$quiz_assign_data);
             }
         }
         $this->ben_redirect("lms/".$this->current_page['controller']."/index");

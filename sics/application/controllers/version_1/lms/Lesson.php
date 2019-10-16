@@ -892,20 +892,6 @@ class Lesson extends BEN_General {
         
     }
 
-    // public function delete(){
-    //     $id_storage = json_decode($_REQUEST['id_storage']);
-    //     foreach ($id_storage as $id_storage_key => $id_storage_value) {
-    //         $data = array(
-    //             "lesson_id"=>$id_storage_value,
-    //             "deleted"=>1,
-    //         );
-    //         $this->db->where("lesson_id", $data["lesson_id"]);
-    //         $this->db->update("lesson_assign",$data);
-    //     }
-    //     $this->ben_general_delete($this->current_page['controller']);
-
-    // }
-
     public function delete($id=""){
         $data = array(
             "id"=>$id,
@@ -913,6 +899,12 @@ class Lesson extends BEN_General {
         );
 
         $this->lesson_model->update("lesson",$data);
+        $lesson_assign_data = array(
+            "lesson_id"=>$id,
+            "deleted"=>1,
+        );
+        $this->lesson_model->sms_update("lesson_assign","lesson_id",$lesson_assign_data);
+        $this->lesson_model->sms_update("file","lesson_id",$lesson_assign_data);
         $this->ben_redirect("lms/".$this->current_page['controller']."/index");
     }
 

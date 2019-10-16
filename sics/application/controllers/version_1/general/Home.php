@@ -45,7 +45,7 @@ class Home extends BEN_General {
         // print_r($return);
         // exit();
         $this->data['data'] = $return;
-        $this->ben_view_ultraclear('');
+        $this->ben_view_ultraclear(__FUNCTION__);
     }
 
     public function calendar(){

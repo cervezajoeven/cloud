@@ -32,6 +32,50 @@ class Lesson_model extends BEN_Model {
         $return = $query->result_array();
         return $return;
     }
+    public function lesson_schedule($grade=""){
+
+        $this->db->from('lesson_assign');
+        $this->db->join('lesson', 'lesson.id = lesson_assign.lesson_id','left');
+
+        $this->db->select('
+            lesson_name,
+            start_date,
+            end_date,
+            lesson_assign.grades,
+            lesson.deleted as lesson_deleted,
+            lesson_assign.deleted as lesson_assign_deleted,
+        ');
+        // $this->db->where('lesson.deleted',0);
+        $this->db->where('lesson_assign.deleted',0);
+        $this->db->where('lesson.account_id',$this->session->userdata('id'));
+        if($grade){
+            $this->db->where("FIND_IN_SET('".$grade."', lesson_assign.grades) !=", 0);
+        }
+        
+        $this->db->error();
+        $query = $this->db->get();
+
+        $return = $query->result_array();
+        return $return;
+    }
+    public function optimize_lessons(){
+
+        $this->db->from('lesson');
+        // $this->db->join('lesson_assign', 'lesson.id = lesson_assign.lesson_id','left');
+        $this->db->select('
+            *,
+            lesson.deleted as lesson_deleted,
+        ');
+        $this->db->error();
+        $query = $this->db->where('lesson.deleted',1);
+        $query = $this->db->get();
+        $return = $query->result_array();
+        foreach ($return as $return_key => $return_value) {
+            $lesson_assign_data = array("lesson_id"=>$return_value['id'],"deleted"=>1);
+            $this->lesson_model->sms_update("lesson_assign","lesson_id",$lesson_assign_data);
+        }
+        return $return;
+    }
     public function update_sort_order($data){
         $this->db->where("id",$data['id']);
         print_r($data);

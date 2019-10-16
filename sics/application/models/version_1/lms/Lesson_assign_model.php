@@ -58,6 +58,7 @@ class Lesson_assign_model extends BEN_Model {
 		$this->db->where('end_date >=', $date_now);
 		// $this->db->where('DATE_ADD(end_date,INTERVAL 1 DAY) >=', $date_now);
 		$this->db->where("FIND_IN_SET(".$account_id.", lesson_assign.account_ids) !=", 0);
+		$this->db->where('lesson_assign.deleted', 0);
 
 		$query = $this->db->get()->result_array();
 
