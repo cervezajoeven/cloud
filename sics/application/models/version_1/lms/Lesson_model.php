@@ -36,6 +36,7 @@ class Lesson_model extends BEN_Model {
 
         $this->db->from('lesson_assign');
         $this->db->join('lesson', 'lesson.id = lesson_assign.lesson_id','left');
+        $this->db->join('profile', 'profile.account_id = lesson.account_id','left');
 
         $this->db->select('
             lesson_name,
@@ -44,6 +45,7 @@ class Lesson_model extends BEN_Model {
             lesson_assign.grades,
             lesson.deleted as lesson_deleted,
             lesson_assign.deleted as lesson_assign_deleted,
+            profile.last_name as last_name,
         ');
         // $this->db->where('lesson.deleted',0);
         $this->db->where('lesson_assign.deleted',0);

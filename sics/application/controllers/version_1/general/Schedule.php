@@ -22,14 +22,26 @@ class Schedule extends BEN_General {
         // print_r(count($this->data['lesson_schedule']));
         // print_r(urldecode($grade));
         // exit;
-        $color_array = array("#1b7d36","#32a852","#09541e","#163d20");
+
+        $main_color_array = array("#9e0000","#9e5700","#9e8400","#969e00","#699e00","#2f9e00","#009e7e","#00779e","#001a9e","#4a009e","#8c009e","#9e005f","#9e0000");
+        $color_array = $main_color_array;
+
         foreach ($this->data['lesson_schedule'] as $lesson_schedule_key => $lesson_schedule_value) {
             $lesson_schedule_json[$lesson_schedule_key] = new stdClass();
-            $lesson_schedule_json[$lesson_schedule_key]->title = html_entity_decode($lesson_schedule_value['lesson_name']);
+            $lesson_schedule_json[$lesson_schedule_key]->title = html_entity_decode($lesson_schedule_value['lesson_name'])." Teacher: ".html_entity_decode($lesson_schedule_value['last_name']);
             $lesson_schedule_json[$lesson_schedule_key]->start = date("c",strtotime($lesson_schedule_value['start_date']));
             $lesson_schedule_json[$lesson_schedule_key]->end = date("c",strtotime($lesson_schedule_value['end_date']));
             $lesson_schedule_json[$lesson_schedule_key]->allDay = false;
-            $lesson_schedule_json[$lesson_schedule_key]->color = $color_array[rand(0,2)];
+            $the_random = 0;
+            $lesson_schedule_json[$lesson_schedule_key]->color = $color_array[$the_random];
+            unset($color_array[$the_random]);
+            if(!empty($color_array)){
+                $color_array = array_values($color_array);
+            }else{
+                $color_array = $main_color_array;
+            }
+            
+            // print_r($color_array);
         }
         // print_r($lesson_schedule_json);
         // exit();

@@ -36,7 +36,7 @@
 	                            <th>Quarter</th>
 	                            <th>Assigned To</th>
                                 <th>Shared</th>
-	                            <th>Owner</th>
+	                            <th>Date Created</th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
@@ -52,7 +52,8 @@
 	                                <td><?php echo $data_value['semester'] ?></td>
 	                                <td><?php if($data_value['sections']!=""): ?><a href="#" data-toggle="modal" data-target="#assigned_<?php echo $data_value['id'] ?>">View Assigned</a><?php else: ?> Unassigned<?php endif; ?></td>
                                     <td><?php if($data_value['shared']=='1'):?>Yes<?php else: ?>No<?php endif; ?></td>
-	                                <td><?php echo $profile['first_name'] ?> <?php echo $profile['last_name'] ?></td>
+	                                <!-- <td><?php echo $profile['first_name'] ?> <?php echo $profile['last_name'] ?></td> -->
+                                    <td><?php echo $data_value['date_created'] ?></td>
 	                            </tr>
 	                        <?php endforeach?>
 	                    </tbody>
@@ -126,6 +127,7 @@
         select: {
             style: 'single'
         },
+        "order": [[ 7, "desc" ]],
         "columnDefs": [
             {
                 "targets": [ 0 ],

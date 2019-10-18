@@ -646,6 +646,7 @@ class Quiz_model extends BEN_Model {
             quiz.*,
             quiz.id as id,
             quiz.id as quiz_id,
+            quiz.date_created as quiz_date_created,
             a.subject_name as subject_name,
             b.grade_name as grade_name,
             c.username as username,
@@ -657,7 +658,7 @@ class Quiz_model extends BEN_Model {
         // $this->db->where("quiz_type",$type);
         $this->db->where("account_id",$this->session->userdata('id'));
         $this->db->where("quiz.deleted",0);
-        $this->db->order_by("id","desc");
+        $this->db->order_by("quiz_date_created","DESC");
         $query = $this->db->get();
         $return = $query->result_array();
         // print_r("<pre>");

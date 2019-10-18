@@ -106,8 +106,7 @@
                                 <input type="hidden" id="edit_selected_section" name="">
                               </div>
                               <div class="modal-footer">
-                                <button id="edit" type="submit" class="btn btn-success">Edit</button>
-                                <button id="delete" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                 
                                 
                               </div>
@@ -206,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
         weekNumberCalculation: 'ISO',
         minTime: "05:00:00",
         maxTime: "18:00:00",
-        hiddenDays: [0,6],
+        // hiddenDays: [0,6],
         selectable: false,
         selectMirror: true,
         select: function(arg) {
@@ -226,9 +225,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var edit_color = info.event.backgroundColor;
             console.log(info.event);
             var start_date = info.event.start.toLocaleString();
+            var end_date = info.event.end.toLocaleString();
             $("#topic_label").text(info.event.title);
             $("#start_date").text(start_date);
-            $("#end_date").text(info.event.end);
+            $("#end_date").text(end_date);
 
             // document.getElementById('edit_color').jscolor.fromString(edit_color);
             $("#edit_color").css("background-color",edit_color);

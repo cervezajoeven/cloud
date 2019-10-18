@@ -35,13 +35,30 @@
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Notifications -->
-                    <li class="dropdown">
-                        <a href="<?php echo $general_class->ben_link('general/login/logout')?>" id="sign_out" class="dropdown-toggle" role="button">
-                            <i class="material-icons">power_settings_new</i>
-
-                            <span class="label-count" style="top: 32px;left: -1px;background-color: transparent;">Logout</span>
+<li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">person</i>
                         </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Profile</li>
+                            <li class="body">
+                                <ul class="menu">
+                                    <a href="javascript:void(0);">
+                                        <div class="icon-circle">
+                                            <img style="height: 30px" src="<?php echo $general_class->ben_resources('images/assessment.png')?>">
+                                        </div>
+                                        <?php echo $general_class->session->userdata('first_name') ?> <?php echo $general_class->session->userdata('last_name') ?>
+                                    </a>
+                                    <li>
+                                        
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="javascript:void(0);">Edit Profile</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -96,14 +113,14 @@
                     <?php if(strtolower($general_class->session->userdata('account_type_name'))=="student"):?>
                             <li class="<?php if(in_array('assigned_lesson', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="<?php echo $general_class->ben_link('lms/lesson/assigned_lesson')?>" class="">
-                                    <i class="material-icons">folder</i>
+                                    <img style="height: 30px" src="<?php echo $general_class->ben_resources('images/lesson.png')?>">
                                     <span>Lessons</span>
                                 </a>
                             </li>
 
                             <li class="<?php if(in_array('student_assigned_quizzes', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="<?php echo $general_class->ben_link('lms/quiz/student_assigned_quizzes')?>" class="">
-                                    <i class="material-icons">assessment</i>
+                                    <img style="height: 30px" src="<?php echo $general_class->ben_resources('images/assessment.png')?>">
                                     <span>Quizzes</span>
                                 </a>
                             </li>
@@ -117,7 +134,7 @@
                         <?php elseif($general_class->session->userdata('account_type_id')==3): ?>
                             <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <i class="material-icons">book</i>
+                                    <img style="height: 30px" src="<?php echo $general_class->ben_resources('images/lesson.png')?>">
                                     <span>Lesson</span>
                                 </a>
                                 <ul class="ml-menu">
@@ -144,7 +161,7 @@
 
                             <li class="<?php if(in_array('assessment', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <i class="material-icons">assessment</i>
+                                    <img style="height: 30px" src="<?php echo $general_class->ben_resources('images/assessment.png')?>">
                                     <span>Assessment</span>
                                 </a>
                                 <ul class="ml-menu">
@@ -185,7 +202,7 @@
                         <?php else: ?>
                             <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <i class="material-icons">book</i>
+                                    <img style="height: 30px" src="<?php echo $general_class->ben_resources('images/lesson.png')?>">
                                     <span>Lesson</span>
                                 </a>
                                 <ul class="ml-menu">
@@ -213,7 +230,8 @@
 
                             <li class="<?php if(in_array('assessment', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <i class="material-icons">assessment</i>
+                                    <img style="height: 30px" src="<?php echo $general_class->ben_resources('images/assessment.png')?>">
+
                                     <span>Assessment</span>
                                 </a>
                                 <ul class="ml-menu">
@@ -237,17 +255,40 @@
                                 </ul>
                             </li>
 
-                            <li class="<?php if(in_array('my_schedule', $general_class->toggled)): echo 'active'; endif; ?>">
-                                <a href="<?php echo $general_class->ben_link('general/schedule/index'); ?>">
+                            <li class="<?php if(in_array('assessment', $general_class->toggled)): echo 'active'; endif; ?>">
+                                <a href="javascript:void(0);" class="menu-toggle">
                                     <i class="material-icons" style="margin-left:-215px">calendar_today</i>
-                                    <span>My Schedule</span>
+                                    <span>Schedules</span>
                                 </a>
-                                
+                                <ul class="ml-menu">
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/schedule/index')?>" class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>All</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/schedule/index')?>" class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Lesson</span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php if(in_array('shared_quizzes', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/schedule/index')?>" class="<?php if(in_array('shared_quizzes', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Assessment</span>
+                                        </a>
+                                        
+                                    </li>
+                                </ul>
                             </li>
 
                     <?php endif; ?>
                     
-                    
+                    <li>
+                        <a href="<?php echo $general_class->ben_link('general/login/logout')?>">
+                            <i class="material-icons">power_settings_new</i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
                     
                     
                 </ul>
@@ -285,6 +326,7 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
+
 </script>
 <!--End of Tawk.to Script-->
 <?php endif; ?>
