@@ -691,5 +691,83 @@ class Quiz_model extends BEN_Model {
 
         return $return;
     }
+
+    public function optimize_quizzes(){
+
+        $this->db->from('quiz');
+        // $this->db->join('lesson_assign', 'lesson.id = lesson_assign.lesson_id','left');
+        $this->db->select('
+            *,
+            quiz.deleted as quiz_deleted,
+        ');
+        $this->db->error();
+        $query = $this->db->where('quiz.deleted',1);
+        $query = $this->db->get();
+        $return = $query->result_array();
+        foreach ($return as $return_key => $return_value) {
+            $quiz_assign_data = array("quiz_id"=>$return_value['id'],"deleted"=>1);
+            $this->quiz_model->sms_update("quiz_assign","quiz_id",$quiz_assign_data);
+        }
+        return $return;
+    }
+
+    public function quiz_schedule($grade=""){
+
+        $this->db->from('quiz_assign');
+        $this->db->join('quiz', 'quiz.id = quiz_assign.quiz_id','left');
+        $this->db->join('profile', 'profile.account_id = quiz.account_id','left');
+
+        $this->db->select('
+            quiz_name,
+            start_date,
+            end_date,
+            quiz_assign.grades,
+            quiz_assign.sections as sections,
+            quiz.deleted as quiz_deleted,
+            quiz_assign.deleted as quiz_assign_deleted,
+            profile.last_name as last_name,
+        ');
+        // $this->db->select('*');
+        $this->db->where('quiz_assign.deleted',0);
+        $this->db->where('quiz.account_id',$this->session->userdata('id'));
+        if($grade){
+            $this->db->where("FIND_IN_SET('".$grade."', quiz_assign.grades) !=", 0);
+        }
+        
+        $this->db->error();
+        $query = $this->db->get();
+
+        $return = $query->result_array();
+        return $return;
+    }
+
+    public function quiz_schedule_admin($grade=""){
+
+        $this->db->from('quiz_assign');
+        $this->db->join('quiz', 'quiz.id = quiz_assign.quiz_id','left');
+        $this->db->join('profile', 'profile.account_id = quiz.account_id','left');
+
+        $this->db->select('
+            quiz_name,
+            start_date,
+            end_date,
+            quiz_assign.grades,
+            quiz_assign.sections as sections,
+            quiz.deleted as quiz_deleted,
+            quiz_assign.deleted as quiz_assign_deleted,
+            profile.last_name as last_name,
+        ');
+        // $this->db->select('*');
+        $this->db->where('quiz_assign.deleted',0);
+        if($grade){
+            $this->db->where("FIND_IN_SET('".$grade."', quiz_assign.grades) !=", 0);
+        }
+        
+        $this->db->error();
+        $query = $this->db->get();
+
+        $return = $query->result_array();
+        return $return;
+    }
 	
 }

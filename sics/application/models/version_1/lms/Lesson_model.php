@@ -43,6 +43,7 @@ class Lesson_model extends BEN_Model {
             start_date,
             end_date,
             lesson_assign.grades,
+            lesson_assign.sections as sections,
             lesson.deleted as lesson_deleted,
             lesson_assign.deleted as lesson_assign_deleted,
             profile.last_name as last_name,
@@ -50,6 +51,34 @@ class Lesson_model extends BEN_Model {
         // $this->db->where('lesson.deleted',0);
         $this->db->where('lesson_assign.deleted',0);
         $this->db->where('lesson.account_id',$this->session->userdata('id'));
+        if($grade){
+            $this->db->where("FIND_IN_SET('".$grade."', lesson_assign.grades) !=", 0);
+        }
+        
+        $this->db->error();
+        $query = $this->db->get();
+
+        $return = $query->result_array();
+        return $return;
+    }
+    public function lesson_schedule_admin($grade=""){
+
+        $this->db->from('lesson_assign');
+        $this->db->join('lesson', 'lesson.id = lesson_assign.lesson_id','left');
+        $this->db->join('profile', 'profile.account_id = lesson.account_id','left');
+
+        $this->db->select('
+            lesson_name,
+            start_date,
+            end_date,
+            lesson_assign.grades,
+            lesson_assign.sections as sections,
+            lesson.deleted as lesson_deleted,
+            lesson_assign.deleted as lesson_assign_deleted,
+            profile.last_name as last_name,
+        ');
+        // $this->db->where('lesson.deleted',0);
+        $this->db->where('lesson_assign.deleted',0);
         if($grade){
             $this->db->where("FIND_IN_SET('".$grade."', lesson_assign.grades) !=", 0);
         }

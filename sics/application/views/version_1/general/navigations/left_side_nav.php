@@ -184,12 +184,25 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
-                                <a href="javascript:void(0);">
-                                    <i class="material-icons">book</i>
+                            <li class="<?php if(in_array('assessment', $general_class->toggled)): echo 'active'; endif; ?>">
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons" style="margin-left:-215px">calendar_today</i>
                                     <span>Schedules</span>
                                 </a>
-                                
+                                <ul class="ml-menu">
+
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/schedule/admin_lesson')?>" class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Lesson</span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php if(in_array('shared_quizzes', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/schedule/admin_assessment')?>" class="<?php if(in_array('shared_quizzes', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Assessment</span>
+                                        </a>
+                                        
+                                    </li>
+                                </ul>
                             </li>
 
                             <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
@@ -261,11 +274,6 @@
                                     <span>Schedules</span>
                                 </a>
                                 <ul class="ml-menu">
-                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
-                                        <a href="<?php echo $general_class->ben_link('general/schedule/index')?>" class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'toggled'; endif; ?>">
-                                            <span>All</span>
-                                        </a>
-                                    </li>
 
                                     <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
                                         <a href="<?php echo $general_class->ben_link('general/schedule/index')?>" class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'toggled'; endif; ?>">
@@ -273,7 +281,7 @@
                                         </a>
                                     </li>
                                     <li class="<?php if(in_array('shared_quizzes', $general_class->toggled)): echo 'active'; endif; ?>">
-                                        <a href="<?php echo $general_class->ben_link('general/schedule/index')?>" class="<?php if(in_array('shared_quizzes', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/schedule/assessment')?>" class="<?php if(in_array('shared_quizzes', $general_class->toggled)): echo 'toggled'; endif; ?>">
                                             <span>Assessment</span>
                                         </a>
                                         

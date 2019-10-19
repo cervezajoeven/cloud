@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <?php if(!empty($data['schedule'])): ?>
         // var feed = '<?php echo htmlspecialchars_decode($data['schedule'][0]['schedule']) ?>';
         var feed = '<?php echo htmlspecialchars_decode($data['schedule'][0]['schedule']) ?>';
-        console.log(<?php echo $general_class->data['lesson_schedule']?>);
+        console.log(<?php echo $general_class->data['the_schedule']?>);
     <?php else: ?>
         var feed = "[]";
     <?php endif; ?>
@@ -233,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
             var edit_section_id = custom_data.section_id;
             var edit_topic = custom_data.topic;
             var edit_color = info.event.backgroundColor;
-            console.log(info.event);
             var start_date = info.event.start.toLocaleString();
             var end_date = info.event.end.toLocaleString();
             $("#topic_label").text(info.event.extendedProps.topic);
@@ -254,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         editable: false,
         eventLimit: true, // allow "more" link when too many events
-        events: <?php echo $general_class->data['lesson_schedule']?>,
+        events: <?php echo $general_class->data['the_schedule']?>,
     });
 
     calendar.render();
