@@ -377,12 +377,20 @@
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
           </ol>
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-              <img src="<?php echo $general_class->ben_resources('uploads/banners/image.png'); ?>" alt="Los Angeles">
+              <img src="<?php echo $general_class->ben_resources('uploads/banners/image1.png'); ?>" alt="">
+            </div>
+            <div class="item">
+              <img src="<?php echo $general_class->ben_resources('uploads/banners/image2.png'); ?>" alt="">
+            </div>
+            <div class="item">
+              <img src="<?php echo $general_class->ben_resources('uploads/banners/image3.png'); ?>" alt="">
             </div>
           </div>
 

@@ -92,6 +92,21 @@ class Account extends BEN_General {
         $this->data['id'] = $id;
         $this->ben_view(__FUNCTION__);
     }
+    public function change_password(){
+        $account_id = $this->session->userdata('id');
+        $password = $_REQUEST['password'];
+        $confirm_password = $_REQUEST['confirm_password'];
+        if($password==$confirm_password){
+            $account_data['password'] = md5($password);
+            $account_data['initial_login'] = 1;
+            $account_data['id'] = $account_id;
+            $this->session->set_flashdata('change_password_successful','success');
+            if($this->account_model->sms_update('account','id',$account_data)){
+                $this->ben_redirect('general/dashboard/sms_index');
+            }
+
+        }
+    }
 
     public function change_save($id=""){
         unset($_REQUEST['_ga']);

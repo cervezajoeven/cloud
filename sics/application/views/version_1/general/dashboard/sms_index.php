@@ -6,6 +6,7 @@
         display: none;
     }
 </style>
+
 <?php $banner_data = $general_class->data['banner_data']?>
 <?php $announcement_data = $general_class->data['announcement_data']?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
@@ -32,47 +33,92 @@
                 </ul>
             </div>
             <div class="body">
+                <!-- Modal Size Example -->
+                <button type="button" id="change_password_button" data-backdrop="static" data-keyboard="false" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal" style="display: none;">Change Password</button>
+                <button type="button" id="change_password_success_button" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-color="green" data-target="#change_password_success" style="display: none;">Show Success</button>
                 
-                <center>
-                    <!-- <div style="width: 60%;">
-                        
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                            <ol class="carousel-indicators">
-                                <?php foreach ($banner_data as $banner_key => $banner_value):?>
-                                    <li data-target="#myCarousel" data-slide-to="<?php echo $banner_key?>" class="<?php if($banner_key==0):?> active <?php endif;?>"></li>
-                                <?php endforeach; ?>
-                            </ol>
-
-
-                            <div class="carousel-inner">
-
-                                <?php foreach ($banner_data as $banner_key => $banner_value):?>
-                                    <div class="item <?php if($banner_key==0):?> active <?php endif;?>">
-                                        <img src="<?php echo $general_class->ben_image('company/steps/banner/'.$banner_value['banner_url']); ?>" alt="Los Angeles" style="width:<?php echo $banner_value['banner_width']; ?>%;margin:0 auto;">
-                                    </div>
-                                <?php endforeach; ?>
-
-                            </div>
-
-
-                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div> -->
-               </center> 
 
             </div>
             
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+
+<!-- Default Size -->
+<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="<?php echo $general_class->ben_link('general/account/change_password') ?>" method="POST" >
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Please Change Your Password Here</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr>
+                            <td>Name</td>
+                            <td><?php echo $data['the_user']['first_name']?> <?php echo $data['the_user']['last_name']?></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input id="password" type="password" class="form-control" autocomplete="new-password" required="" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td>Confirm Password</td>
+                            <td><input id="confirm_password" class="form-control" autocomplete="autocomplete" type="password" name="confirm_password"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-link waves-effect">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="change_password_success" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-col-green">
+                
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">Success</h4>
+            </div>
+            <div class="modal-body">
+                <h1>You have successfully changed your password!</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link waves-effect" data-dismiss='modal'>Close</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
+    var password = document.getElementById("password")
+      , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword(){
+
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+    <?php if($data['trigger_change_password']): ?>
+        $(document).ready(function(){
+            $("#change_password_button").click();
+        });
+    <?php endif;?>
+    <?php if($this->session->flashdata('change_password_successful')): ?>
+        $(document).ready(function(){
+            $("#change_password_success_button").click();
+        });
+    <?php endif;?>
+    
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
