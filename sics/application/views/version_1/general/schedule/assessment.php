@@ -26,7 +26,7 @@
                 <div class="header">
                     <div class="row clearfix">
                         <div class="col-xs-12 col-sm-6">
-                            <h2>LMS Lesson Schedule</h2>
+                            <h2>LMS Assessment Schedule</h2>
                         </div>
                     </div>
                     <ul class="header-dropdown m-r--5">
