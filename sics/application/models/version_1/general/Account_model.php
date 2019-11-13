@@ -67,7 +67,17 @@ class Account_model extends BEN_Model {
 		$table="account";
 		$this->db->where("id", $id);
 		$data = $this->db->get($table)->result_array()[0];
-		$data['password'] = md5($data['username']);
+		// $data['password'] = md5($data['username']);
+//        print_r($data);
+//        exit();
+        if($data['account_type_id']==5){
+            $data['password'] = md5("student");
+        }elseif($data['account_type_id']==4){
+            $data['password'] = md5("teacher");
+        }else{
+            $data['password'] = md5("admin");
+        }
+
 		$this->db->where("id", $id);
         if($this->db->update($table, $data)){
 			$this->db->where("id", $id);
@@ -122,7 +132,7 @@ class Account_model extends BEN_Model {
 
 	public function accounts(){
 		// echo "<pre>";
-		$this->db->select('*,CONCAT(profile.first_name," ",profile.last_name) as full_name');
+		$this->db->select('account.id as id,account.username,first_name,last_name,logged');
 		$this->db->from('account');
 		$this->db->join('account_type','account_type.id = account.account_type_id','left');
 		$this->db->join('profile','profile.account_id = account.id','left');
@@ -130,8 +140,10 @@ class Account_model extends BEN_Model {
 		$this->db->join('section','section.id = classes.section_id','left');
 		$this->db->join('grade','grade.id = section.grade_id','left');
 		$this->db->where('account.deleted', 0);
+		$this->db->where('account.account_type_id!=','3');
 		$query = $this->db->get();
 		$return = $query->result_array();
+
 		// print_r($return);
 		// exit;
 		return $return;

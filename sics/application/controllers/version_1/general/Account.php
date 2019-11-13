@@ -17,12 +17,13 @@ class Account extends BEN_General {
         $data_filter = $this->account_model->accounts(array('account','account_type','company'));
         $end_data_filter = $data_filter;
         end($end_data_filter);
+
         $end_data_filter_key = key($end_data_filter); 
         unset($data_filter[$end_data_filter_key]);
 
         $this->data['all_data'] = $data_filter;
 
-        $this->ben_view(__FUNCTION__);
+        $this->sms_view(__FUNCTION__);
     }
 
     public function mastery_test_index(){
@@ -71,12 +72,12 @@ class Account extends BEN_General {
         }
     }
 
-    public function update(){
-        if($_REQUEST['id_storage']){
-            $id_storage = json_decode($_REQUEST['id_storage']);
-            $this->data['account_id'] = $id_storage[0];
+    public function update($account_id){
+
+        if($account_id){
+            $this->data['account_id'] = $account_id;
             $this->data['all_data'] = $this->account_type_model->multiple_join(array('account_type','company'));
-            $this->data['update_data'] = $this->db->get_where($this->current_page['controller'],array("id"=>$id_storage[0]))->result_array()[0];
+            $this->data['update_data'] = $this->db->get_where($this->current_page['controller'],array("id"=>$account_id))->result_array()[0];
             $this->ben_view(__FUNCTION__);
         }else{
             $this->ben_notify(array(array("danger","No data was specified")));
