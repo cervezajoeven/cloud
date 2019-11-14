@@ -131,7 +131,7 @@ class Account_model extends BEN_Model {
 	}
 
 	public function accounts(){
-		// echo "<pre>";
+
 		$this->db->select('account.id as id,account.username,first_name,last_name,logged');
 		$this->db->from('account');
 		$this->db->join('account_type','account_type.id = account.account_type_id','left');

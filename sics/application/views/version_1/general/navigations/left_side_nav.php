@@ -244,6 +244,13 @@
                                 </a>
                                 
                             </li>
+                            <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
+                                <a href="<?php echo $general_class->ben_link('general/reports/usage') ?>">
+                                    <i class="material-icons">pie_chart</i>
+                                    <span>Usage Reports</span>
+                                </a>
+
+                            </li>
                         <?php else: ?>
                             <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="javascript:void(0);" class="menu-toggle">
