@@ -138,7 +138,7 @@
 			<div class="folders_holder">
 				<?php foreach($data['lesson_folders'] as $folder_key=>$folder_value): ?>
 					<?php $folder_number = $folder_key+1; ?>
-					<div class="col-xs-2 folder">
+					<div class="col-xs-3 folder">
 							<div class="folder_title_container">
 								<p class="folder_title"><?php echo $folder_value; ?></p>
 							</div>
