@@ -1,118 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85fb092d-1dee-47d2-aa2e-8455ce84d8ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/controllers/version_1/general/Reports.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/version_1/general/Reports_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/version_1/general/reports/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/version_1/general/reports/usage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/Gruntfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/bower.travis.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/_template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/area-as-line.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/area.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/bar-colors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/bar-no-axes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/bar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/days.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/decimal-custom-hover.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/diagonal-xlabels-bar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/diagonal-xlabels.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/donut-colors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/donut-formatter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/donut.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/dst.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/events.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/goals.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/lib/example.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/lib/example.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/months-no-smooth.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/negative.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/no-grid.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/non-continuous.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/non-date.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/quarters.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/resize.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/stacked_bars.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/timestamps.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/updating.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/weeks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/examples/years.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/less/morris.core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.area.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.bar.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.donut.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.grid.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.hover.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.line.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/morris.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/morris.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/morris.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/area/area_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/bar/bar_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/bar/colours.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/commas_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/donut/donut_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/grid/auto_grid_lines_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/grid/set_data_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/grid/y_label_format_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/hover_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/label_series_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/line/line_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/pad_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/lib/parse_time_spec.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/specs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/support/placeholder.coffee" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/viz/examples.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/viz/exemplary/area0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/viz/exemplary/bar0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/viz/exemplary/line0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/viz/exemplary/stacked_bar0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/viz/run.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/viz/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/datatables/morrisjs/spec/viz/visual_specs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/application/config/common/dp_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../rezan/application/config/common/dp_config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../rezan/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/../rezan/application/controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/application/views/public/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/../rezan/application/views/public/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/application/views/user/home.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/css/adminlte.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/css/adminlte.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/css/adminlte.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/js/adminlte.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/js/adminlte.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/js/adminlte.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/js/demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/js/pages/dashboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/js/pages/dashboard2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rezan/assets/frameworks/adminlte/js/pages/dashboard3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/version_1/general/Account_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/version_1/general/Account_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/version_1/general/navigations/left_side_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/version_1/general/navigations/left_side_nav.php" afterDir="false" />
-    </list>
+    <list default="true" id="85fb092d-1dee-47d2-aa2e-8455ce84d8ea" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/version_1/general/reports/usage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
+            <state relative-caret-position="1258">
               <caret line="74" column="7" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
             </state>
           </provider>
@@ -130,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/version_1/general/Reports_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
+            <state relative-caret-position="1037">
               <caret line="61" column="36" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="36" />
             </state>
           </provider>
@@ -139,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/version_1/general/navigations/left_side_nav.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
+            <state relative-caret-position="3774">
               <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
             </state>
           </provider>
@@ -148,7 +55,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../htdocs_backup/adminbsb/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
+            <state relative-caret-position="14042">
               <caret line="826" column="22" selection-start-line="816" selection-start-column="16" selection-end-line="826" selection-end-column="22" />
             </state>
           </provider>
@@ -157,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../htdocs_backup/adminbsb/pages/charts/morris.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
+            <state relative-caret-position="110">
+              <caret line="68" column="35" lean-forward="true" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -167,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/../../htdocs_backup/adminbsb/js/pages/charts/morris.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="35" lean-forward="true" selection-end-line="167" selection-end-column="1" />
+              <caret line="8" column="35" selection-end-line="167" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -244,144 +151,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-              <item name="general" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-              <item name="sms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-              <item name="general" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-              <item name="lms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-              <item name="sms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-              <item name="general" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-              <item name="lms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="version_1" type="462c0819:PsiDirectoryNode" />
-              <item name="lms" type="462c0819:PsiDirectoryNode" />
-              <item name="lesson" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sics" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="datatables" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../meycauayan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -411,6 +188,7 @@
       <option name="presentableId" value="Default" />
       <updated>1573634569337</updated>
       <workItem from="1573634571869" duration="10662000" />
+      <workItem from="1573906641946" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="Update Reset Password">
       <created>1573641940010</created>
@@ -423,20 +201,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10662000" />
+    <option name="totallyTimeSpent" value="10691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21862349" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22267206" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -444,10 +216,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -531,24 +308,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/version_1/sms/Attendance.php">
+    <entry file="file://$PROJECT_DIR$/resources/datatables/morris.js" />
+    <entry file="file://$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="136">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/version_1/lms/Lesson_model.php">
+    <entry file="file://$PROJECT_DIR$/application/views/version_1/general/reports/usage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/version_1/general/navigations/left_side_nav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
+        <state relative-caret-position="1258">
+          <caret line="74" column="7" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -559,19 +330,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/datatables/morris.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/datatables/morrisjs/lib/morris.coffee">
+    <entry file="file://$PROJECT_DIR$/application/models/version_1/general/Reports_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        <state relative-caret-position="1037">
+          <caret line="61" column="36" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/version_1/general/navigations/left_side_nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3774">
+          <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../htdocs_backup/adminbsb/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
+        <state relative-caret-position="14042">
           <caret line="826" column="22" selection-start-line="816" selection-start-column="16" selection-end-line="826" selection-end-column="22" />
         </state>
       </provider>
@@ -579,28 +354,28 @@
     <entry file="file://$PROJECT_DIR$/../../htdocs_backup/adminbsb/js/pages/charts/morris.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="35" lean-forward="true" selection-end-line="167" selection-end-column="1" />
+          <caret line="8" column="35" selection-end-line="167" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/version_1/general/reports/usage.php">
+    <entry file="file://$PROJECT_DIR$/application/models/version_1/lms/Lesson_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="74" column="7" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
+        <state relative-caret-position="272">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/version_1/general/Reports_model.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/version_1/sms/Attendance.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="36" />
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../htdocs_backup/adminbsb/pages/charts/morris.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
+        <state relative-caret-position="110">
+          <caret line="68" column="35" lean-forward="true" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
         </state>
       </provider>
     </entry>
