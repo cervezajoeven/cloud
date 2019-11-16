@@ -31,7 +31,7 @@
                                 <th>Lesson Name</th>
 	                            <th>Grade</th>
 	                            <th>Subject</th>
-                                <th>Quarter</th>
+                                <th>Quarter/Semester</th>
                                 <th>Assigned To</th>
                                 <th>Shared</th>
 	                            <th>Owner</th>
