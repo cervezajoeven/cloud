@@ -469,7 +469,7 @@ class Lesson extends BEN_General {
     public function slideshow($lesson_id=""){
 
         $this->data['lesson_id'] = $lesson_id;
-        $this->data['lesson_folders'] = array("Induction","Follow - Up","Lesson Proper","Drill","Wrapping - Up","LAS");
+        $this->data['lesson_folders'] = array("Engage","Explore","Explain","Extend");
         $this->data['lesson_data'] = $this->lesson_model->get_lesson_data_by_id($lesson_id);
         $this->data['files'] = $this->lesson_model->get_files_by_lesson_id($lesson_id);
         $this->ben_view_ultraclear(__FUNCTION__);
@@ -478,7 +478,7 @@ class Lesson extends BEN_General {
     public function slideshow_view($lesson_id=""){
 
         $this->data['lesson_id'] = $lesson_id;
-        $this->data['lesson_folders'] = array("Induction","Follow - Up","Lesson Proper","Drill","Wrapping - Up","LAS");
+        $this->data['lesson_folders'] = array("Engage","Explore","Explain","Extend");
         $this->data['lesson_data'] = $this->lesson_model->get_lesson_data_by_id($lesson_id);
         $this->data['files'] = $this->lesson_model->get_files_by_lesson_id($lesson_id);
         $this->ben_view_ultraclear(__FUNCTION__);
