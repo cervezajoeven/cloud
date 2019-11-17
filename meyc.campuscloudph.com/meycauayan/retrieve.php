@@ -5,15 +5,16 @@
 $url = $_SERVER['SERVER_NAME'];
 if (strpos($url,'localhost') !== false) {
 	define("MODE", "offline");
-}elseif(strpos($url,'192.') !== false) {
+}elseif(strpos($url,'192.') !== false||strpos($url,'172.') !== false||strpos($url,'10.') !== false) {
 	define("MODE", "offline");
 }else{
 	define("MODE", "online");
 }
-$school = "sics";
+$school = "meycauayan";
+$main_url = "http://meyc.campuscloudph.com/";
 function connect($servername = "localhost",$username = "root",$password = "",$dbname = "cms"){
 	if(MODE == "online"){
-		$conn = new mysqli("localhost", "sanisidr_joeven", "Joeven241!", "sanisidr_cms");
+		$conn = new mysqli("localhost", "joeven", "joeven241", "meycauayan");
 	}else{
 		$conn = new mysqli($servername, $username, $password, $dbname);
 	}
@@ -109,7 +110,7 @@ echo "<pre>";
 $tables = array("attempt","file","lesson","lesson_assign","optical","optical_answer_sheet","quiz","quiz_assign","schedule","profile","account");
 // $tables = array("attempt");
 
-$online_url = 'http://campuscloudph.com/'.$school.'/online_retrieve.php';
+$online_url = $main_url.$school.'/online_retrieve.php';
 $ch = curl_init($online_url);                                                                      
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($ch, CURLOPT_POSTREDIR, 3);                                                                  
@@ -210,7 +211,7 @@ if(!empty($online_fetch)){
 		print_r("priorities<br>");
 		print_r($priorities);
 		if(array_key_exists("online", $priorities)){
-			$url = 'http://campuscloudph.com/'.$school.'/get_data.php';
+			$url = $main_url.$school.'/get_data.php';
 			$fields = $priorities["online"];
 			$fields['table'] = $tables_value;
 			$fields_string = "";
@@ -251,7 +252,7 @@ if(!empty($online_fetch)){
 				$data_to_online[$key] = array_map('utf8_encode', $data_to_online[$key]);
 			}
 			
-			$url = 'http://campuscloudph.com/'.$school.'/offline_to_online.php';
+			$url = $main_url.$school.'/offline_to_online.php';
 			$fields = array();
 			$fields[$tables_value] = json_encode($data_to_online);
 			//print_r($fields);
@@ -279,7 +280,7 @@ if(!empty($online_fetch)){
 				$data_to_online_new[$key] = array_map('utf8_encode', $data_to_online_new[$key]);
 			}
 
-			$url = 'http://campuscloudph.com/'.$school.'/offline_to_online.php';
+			$url = $main_url.$school.'/offline_to_online.php';
 			$fields = array();
 			$fields[$tables_value] = json_encode($data_to_online_new);
 
@@ -294,7 +295,7 @@ if(!empty($online_fetch)){
 		print_r($new_online_ids);
 		//online to offline new
 		if(!empty($new_online_ids)){
-			$url = 'http://campuscloudph.com/'.$school.'/get_data.php';
+			$url = $main_url.$school.'/get_data.php';
 			$fields = $new_online_ids;
 			$fields['table'] = $tables_value;
 			$fields_string = "";

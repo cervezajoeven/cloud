@@ -32,7 +32,7 @@ $school = "meycauayan";
 // exit();
 if (strpos($url,'localhost') !== false) {
     $config['base_url'] = 'http://localhost/'.$school.'/';
-} elseif(strpos($url,'192.') !== false||strpos($url,'172.') !== false) {
+} elseif(strpos($url,'192.') !== false||strpos($url,'172.') !== false||strpos($url,'10.') !== false) {
     $config['base_url'] = 'http://'.$url.'/'.$school.'/';
 } elseif(strpos($url,'joeven')) {
 	$config['base_url'] = 'http://'.$url.'/'.$school.'/';
