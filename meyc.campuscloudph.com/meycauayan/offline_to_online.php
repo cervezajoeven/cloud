@@ -4,15 +4,15 @@
 $url = $_SERVER['SERVER_NAME'];
 if (strpos($url,'localhost') !== false) {
 	define("MODE", "offline");
-}elseif(strpos($url,'192.') !== false) {
+}elseif(strpos($url,'192.') !== false||strpos($url,'172.') !== false||strpos($url,'10.') !== false) {
 	define("MODE", "offline");
 }else{
 	define("MODE", "online");
 }
 
-function connect($servername = "localhost",$username = "root",$password = "",$dbname = "cms"){
+function connect($servername = "localhost",$username = "root",$password = "",$dbname = "meycauayan"){
 	if(MODE == "online"){
-		$conn = new mysqli("localhost", "joeven", "joeven241", "cms");
+		$conn = new mysqli("localhost", "joeven", "joeven241", "meycauayan");
 	}else{
 		$conn = new mysqli($servername, $username, $password, $dbname);
 	}
