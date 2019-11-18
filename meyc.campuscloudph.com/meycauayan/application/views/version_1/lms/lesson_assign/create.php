@@ -25,7 +25,7 @@
 					<div id="jstree_demo_div" class="col-xs-12">
 						<ul>
 							<?php foreach ($data['grades'] as $grade_key => $grade): ?>
-								<li>Grade <?php echo $grade['grade_name']; ?>
+								<li>Year <?php echo $grade['grade_name']; ?>
 							        <ul>
 							        	<?php foreach ($data['sections'] as $section_key => $section): ?>
 							        		<?php if($section['grade_id']==$grade['id']): ?>
