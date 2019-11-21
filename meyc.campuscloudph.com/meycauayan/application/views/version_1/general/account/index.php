@@ -33,7 +33,7 @@
 	                        	<td><?php echo $data_value['id']?></td>
 	                        	<td><?php echo $data_value['username']?></td>
 	                        	<td><?php echo $data_value['first_name']?> <?php echo $data_value['last_name']?></td>
-	                        	<td><?php echo $data_value['logged']?></td>
+	                        	<td><?php echo $data_value['status']?></td>
 	                        </tr>
 	                        <?php endforeach?>
 	                    </tbody>
