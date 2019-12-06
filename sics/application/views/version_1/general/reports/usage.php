@@ -4,7 +4,7 @@
             <i class="material-icons">playlist_add_check</i>
         </div>
         <div class="content">
-            <div class="text">assignment</div>
+            <div class="text">Lessons</div>
             <div class="number count-to" data-from="0" data-to="<?php echo $data['total_lessons']?>" data-speed="1000" data-fresh-interval="20"></div>
         </div>
     </div>
