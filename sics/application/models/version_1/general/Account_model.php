@@ -72,12 +72,13 @@ class Account_model extends BEN_Model {
 //        exit();
         if($data['account_type_id']==5){
             $data['password'] = md5("student");
-            $data['initial_login'] = 0;
+            
         }elseif($data['account_type_id']==4){
             $data['password'] = md5("teacher");
         }else{
             $data['password'] = md5("admin");
         }
+        $data['initial_login'] = 0;
 
 		$this->db->where("id", $id);
         if($this->db->update($table, $data)){
