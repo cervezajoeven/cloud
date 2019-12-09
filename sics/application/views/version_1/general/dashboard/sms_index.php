@@ -51,7 +51,16 @@
                   <div class="carousel-inner">
 
                     <div class="item active">
-                      <img src="<?php echo $general_class->ben_resources('uploads/banners/image_5.png'); ?>" alt="">
+                      <img src="<?php echo $general_class->ben_resources('uploads/banners/image_1.png'); ?>" alt="">
+                    </div>
+                    <div class="item">
+                      <img src="<?php echo $general_class->ben_resources('uploads/banners/image_2.png'); ?>" alt="">
+                    </div>
+                    <div class="item">
+                      <img src="<?php echo $general_class->ben_resources('uploads/banners/image_3.png'); ?>" alt="">
+                    </div>
+                    <div class="item">
+                      <img src="<?php echo $general_class->ben_resources('uploads/banners/image_4.png'); ?>" alt="">
                     </div>
                   </div>
 
