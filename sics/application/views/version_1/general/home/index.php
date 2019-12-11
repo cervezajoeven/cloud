@@ -24,6 +24,8 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+
+
     <!-- Custom styles for this template -->
     <link href="<?php echo $css_directory; ?>css/agency.min.css" rel="stylesheet">
     <style type="text/css">
@@ -326,6 +328,8 @@
     </style>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+
+    
   </head>
 
   <body id="page-top">
@@ -1141,8 +1145,26 @@ The STePS educational and formative process recognizes the stages of development
       </div>
     </div>
 
+
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo $css_directory; ?>vendor/jquery/jquery.min.js"></script>
+    <!-- autocomplete -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    var usernames = '<?php echo $general_class->data["usernames"]; ?>';
+    usernames = JSON.parse(usernames);
+    console.log(usernames);
+  $( function() {
+    var availableTags = usernames;
+    $( "#username" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+    <!-- autocomplete -->
     <script src="<?php echo $css_directory; ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
