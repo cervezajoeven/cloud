@@ -11,11 +11,27 @@ class Home extends BEN_General {
 
     public function index($username=""){
 
+        $this->db->from('account');
+        $this->db->select('username');
+        $this->db->where('account.account_type_id',5);
+
+        $this->db->error();
+        $query = $this->db->get();
+        $return = $query->result_array();
+    
+        foreach ($return as $return_key => $return_value) {
+            $usernames[$return_key] = $return_value['username'];
+        }
+        // print_r(json_encode($usernames));
+        $this->data['usernames'] = json_encode($usernames);
+        // print_r(implode(",", $usernames));
+        // exit();
     	$this->data['banner_data'] = $this->banner_model->all('banner');
         $this->data['announcement_data'] = $this->announcement_model->announcement_account_profile();
         $this->data['school_status'] = $this->school_status_model->all("school_status")[0];
         $this->data['school_history'] = $this->school_status_model->get_history();
         $this->data['username'] = $username;
+
 
         $this->ben_view_ultraclear(__FUNCTION__);
     }
