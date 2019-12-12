@@ -1149,21 +1149,22 @@ The STePS educational and formative process recognizes the stages of development
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo $css_directory; ?>vendor/jquery/jquery.min.js"></script>
     <!-- autocomplete -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="<?php echo $general_class->ben_resources('lms/jquery-ui.css'); ?>">
+    
+    <link rel="stylesheet" href="<?php echo $general_class->ben_resources('lms/jqueryui.com/style.css'); ?>">
+    <script src="<?php echo $general_class->ben_resources('lms/jquery-1.12.4.js'); ?>"></script>
+    <script src="<?php echo $general_class->ben_resources('lms/jquery-ui.js'); ?>"></script>
     <script>
-    var usernames = '<?php echo $general_class->data["usernames"]; ?>';
-    usernames = JSON.parse(usernames);
-    console.log(usernames);
-  $( function() {
-    var availableTags = usernames;
-    $( "#username" ).autocomplete({
-      source: availableTags
-    });
-  } );
-  </script>
+      var usernames = '<?php echo $general_class->data["usernames"]; ?>';
+      usernames = JSON.parse(usernames);
+      console.log(usernames);
+      $( function() {
+        var availableTags = usernames;
+        $( "#username" ).autocomplete({
+          source: availableTags
+        });
+      } );
+    </script>
     <!-- autocomplete -->
     <script src="<?php echo $css_directory; ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
