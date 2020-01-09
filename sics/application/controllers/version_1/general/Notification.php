@@ -22,7 +22,7 @@ class Notification extends BEN_General {
 
     public function text_blast_send(){
         $sms_message = $_REQUEST['sms_message'];
-        
+
         $this->db->where('account_type_id', 4);
         $this->db->select("*");
 
@@ -35,9 +35,12 @@ class Notification extends BEN_General {
                 'sms_number' => $value['guardian_contact_number'],
                 'sms_status' => "FOR SENDING",
             );
-
-            $this->account_model->create_new("sms_notification",$data);
+            if($value['guardian_contact_number']){
+                $this->account_model->create_new("sms_notification",$data);    
+            }
         }
+
+        $this->ben_redirect("general/notification/text_blast");
         
     }
 }
