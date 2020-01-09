@@ -14,16 +14,63 @@ class Attendance extends BEN_General {
 
     }
 
-    public function log(){
+    public function log($account_id=0){
         $this->toggled = array("attendance","attendance_log");
-        $this->data['all_data'] = $this->attendance_model->log();
+        if($account_id!=0){
+            
+            $this->data['all_data'] = $this->attendance_model->log($account_id);
+
+        }
+        
         // echo "<pre>";
         // print_r($this->data['all_data']);
         // exit;
         $this->sms_view(__FUNCTION__);
     }
-    public function summary(){
-
+    public function log_ajax(){
+        // $this->data['all_data'] = $this->attendance_model->log($account_id); 
+        $log_ajax = array("data"=>array(
+            array("dog","feguu","klj","quick","brown"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("foasdx","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","ovssssssser","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","joeven","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+            array("fox","jumps","over","the","lazy"),
+        ));
+        // $log_ajax = array("asd","asd","asd","asd","asd");
+        echo json_encode($log_ajax);
+        // return json_encode($log_ajax); 
     }
    
 
