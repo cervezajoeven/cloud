@@ -237,6 +237,21 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="<?php if(in_array('attendance', $general_class->toggled)): echo 'active'; endif; ?>">
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">email</i>
+                                    <span>Notifications</span>
+                                </a>
+                                <ul class="ml-menu">
+
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/notification/text_blast')?>" class="<?php if(in_array('attendance_log', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Text Blast</span>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
                             <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="<?php echo $general_class->ben_link('general/account/index') ?>">
                                     <i class="material-icons">book</i>
