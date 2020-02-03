@@ -65,18 +65,18 @@
 <?php $css_directory = $general_class->ben_resources('version_1/css/general/home/'); ?>
 <?php $js_directory = $general_class->ben_resources('version_1/js/general/home/'); ?>
 
+<!-- <script src="<?php //echo $general_class->ben_resources('lms/jquery-1.12.4.js'); ?>"></script> -->
+
 <!-- Bootstrap core JavaScript -->
 <!-- <script src="<?php //echo $css_directory; ?>vendor/jquery/jquery.min.js"></script> -->
 <!-- autocomplete -->
 <link rel="stylesheet" href="<?php echo $general_class->ben_resources('lms/jquery-ui.css'); ?>">
 <link rel="stylesheet" href="<?php echo $general_class->ben_resources('lms/jqueryui.com/style.css'); ?>">
-<!-- <script src="<?php //echo $general_class->ben_resources('lms/jquery-1.12.4.js'); ?>"></script> -->
 <script src="<?php echo $general_class->ben_resources('lms/jquery-ui.js'); ?>"></script>    
 
-<link rel="stylesheet" type="text/css" href="<?php echo $general_class->ben_resources('lms'); ?>/daterangepicker.css">    
 <script type="text/javascript" src="<?php echo $general_class->ben_resources('lms'); ?>/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $general_class->ben_resources('lms'); ?>/daterangepicker.css">
 <script type="text/javascript" src="<?php echo $general_class->ben_resources('lms'); ?>/daterangepicker.min.js"></script>
-
 
 <script>
     var account_id = "";
@@ -171,14 +171,14 @@
         }
     });
 
-    $('input[name="datefilter"]').on('apply.lms', function(ev, picker) {
+    $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
         $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
 
         start_date = picker.startDate.format('YYYY-MM-DD');
         end_date = picker.endDate.format('YYYY-MM-DD');
     });
 
-    $('input[name="datefilter"]').on('cancel.lms', function(ev, picker) {
+    $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
         $(this).val('');
     });
 
