@@ -23,7 +23,7 @@ class Notification extends BEN_General {
     public function text_blast_send(){
         $sms_message = $_REQUEST['sms_message'];
 
-        $this->db->where('account_type_id', 4);
+        // $this->db->where('account_type_id', 4);
         $this->db->select("*");
 
         $the_accounts = $this->account_model->accounts("account");
