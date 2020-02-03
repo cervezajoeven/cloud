@@ -103,7 +103,7 @@
      
                     <li>
                         <a href="<?php echo $general_class->ben_link('general/dashboard/sms_index')?>">
-                            <i class="material-icons">home</i>
+                            <i class="material-icons" style="color: red!important;">home</i>
                             <span>Home</span>
                         </a>
                     </li>
@@ -206,7 +206,7 @@
                             </li>
                             <li class="<?php if(in_array('attendance', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <i class="material-icons">person</i>
+                                    <i class="material-icons" style="color: violet">person</i>
                                     <span>Attendance</span>
                                 </a>
                                 <ul class="ml-menu">
@@ -239,7 +239,7 @@
                             </li>
                             <li class="<?php if(in_array('attendance', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <i class="material-icons">email</i>
+                                    <i class="material-icons" style="color: green">email</i>
                                     <span>Notifications</span>
                                 </a>
                                 <ul class="ml-menu">
@@ -249,7 +249,36 @@
                                             <span>Text Blast</span>
                                         </a>
                                     </li>
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/announcement/index')?>" class="<?php if(in_array('attendance_log', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Announcement</span>
+                                        </a>
+                                    </li>
                                     
+                                </ul>
+                            </li>
+                            <li class="<?php if(in_array('attendance', $general_class->toggled)): echo 'active'; endif; ?>">
+                                <a href="javascript:void(0);"  class="menu-toggle">
+                                    <i class="material-icons" style="color: orange">book</i>
+                                    <span>eLibrary</span>
+                                </a>
+                                <ul class="ml-menu">
+
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/notification/text_blast')?>" class="<?php if(in_array('attendance_log', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Ebook</span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/announcement/index')?>" class="<?php if(in_array('attendance_log', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Multimedia Contents</span>
+                                        </a>
+                                    </li>
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('general/announcement/index')?>" class="<?php if(in_array('attendance_log', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Reports</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
@@ -261,7 +290,7 @@
                             </li>
                             <li class="<?php if(in_array('lessons', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="<?php echo $general_class->ben_link('general/reports/usage') ?>">
-                                    <i class="material-icons">pie_chart</i>
+                                    <i class="material-icons" style="color: royalblue!important;">pie_chart</i>
                                     <span>Usage Reports</span>
                                 </a>
 
@@ -324,7 +353,7 @@
 
                             <li class="<?php if(in_array('schedule', $general_class->toggled)): echo 'active'; endif; ?>">
                                 <a href="javascript:void(0);" class="menu-toggle">
-                                    <i class="material-icons" style="margin-left:-215px">calendar_today</i>
+                                    <i class="material-icons" style="color: blue!important;margin-left:-215px;">calendar_today</i>
                                     <span>Schedules</span>
                                 </a>
                                 <ul class="ml-menu">

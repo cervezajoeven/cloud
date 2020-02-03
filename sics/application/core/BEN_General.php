@@ -108,12 +108,14 @@ class BEN_General extends CI_Controller {
    		}   		
    		if(!$this->session->has_userdata('username')){
 			if(!in_array($current_function, $excluded)){
-				$this->ben_notify(array(array("warning","You need to login first.")));
-				$this->ben_redirect("general/home");
+				//$this->ben_notify(array(array("warning","You need to login first.")));
+				
+                // $this->session->set_flashdata('wrong_credentials',"Incorrect Username or Password");
+				$this->ben_redirect("general/home/index#login_label");
 			}
 		}else{
 			if(in_array($current_function, $excluded)){
-				$this->ben_notify(array(array("info","Please logout first.")));
+//				$this->ben_notify(array(array("info","Please logout first.")));
 				$this->ben_redirect("general/dashboard/sms_index");
 			}
 		}
@@ -458,6 +460,7 @@ class BEN_General extends CI_Controller {
 	}
 	public function ben_redirect($value="home"){
 		redirect('/version_'.$this->app_version.'/'.$value);
+
 	}
 	public function ben_redirect2($link="home"){
 		return redirect(base_url("index.php/version_".$this->app_version."/".$link));

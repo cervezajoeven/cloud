@@ -313,7 +313,7 @@
             bottom: 20px;
           }
         }
-        
+
         .carousel-inner{
           height: 500px;
         }
@@ -329,7 +329,7 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
-    
+
   </head>
 
   <body id="page-top">
@@ -372,6 +372,7 @@
         </div>
       </div>
     </header>
+
     <section id="about">
       <div class="container">
         <div class="col-lg-12 text-center">
@@ -390,21 +391,21 @@
                   <div class="carousel-inner">
                     <div class="item active">
                       <img src="<?php echo $general_class->ben_resources('uploads/banners/image_1.png'); ?>" alt="">
-                      
+
                     </div>
                     <div class="item">
                       <img src="<?php echo $general_class->ben_resources('uploads/banners/image_2.png'); ?>" alt="">
-                      
+
                     </div>
                     <div class="item">
                       <img src="<?php echo $general_class->ben_resources('uploads/banners/image_3.png'); ?>" alt="">
-                      
+
                     </div>
                     <div class="item">
                       <img src="<?php echo $general_class->ben_resources('uploads/banners/image_4.png'); ?>" alt="">
-                      
+
                     </div>
-                    
+
                   </div>
 
                   <!-- Left and right controls -->
@@ -420,7 +421,7 @@
       </div>
     </section>
 
-    
+
 
     <!-- Services -->
     <!-- <section id="services">
@@ -535,7 +536,7 @@
               <p class="text-muted">Our Logo and It's Meaning<br><br><br><br></p>
             </div>
           </div>
-          
+
           <div class="col-md-3 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#hymn">
               <div class="portfolio-hover">
@@ -598,7 +599,7 @@
                   </div>
                 </div>
               </li>
-              
+
               <li>
                 <div class="timeline-image">
                   <img class="rounded-circle img-fluid" src="<?php echo $css_directory; ?>img/about/3.jpg" alt="">
@@ -613,7 +614,7 @@
                   </div>
                 </div>
               </li>
-              
+
               <li class="timeline-inverted">
                 <div class="timeline-image">
                   <img class="rounded-circle img-fluid" style="height: 155px" src="<?php echo $css_directory; ?>img/about/2.jpg" alt="">
@@ -628,7 +629,7 @@
                   </div>
                 </div>
               </li> -->
-              
+
               <li class="timeline-inverted">
                 <a href="">
                   <div class="timeline-image">
@@ -655,7 +656,7 @@
         </div>
         <div class="row">
           <div class="col-sm-4">
-            
+
           </div>
           <div class="col-sm-4">
             <div class="team-member">
@@ -672,7 +673,7 @@
             </div>
           </div>
           <div class="col-sm-4">
-            
+
           </div>
         </div>
         <div class="row">
@@ -734,7 +735,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Login</h2>
+            <h2 class="section-heading text-uppercase" id="login_label">Login</h2>
             <h3 class="section-subheading text-muted"></h3>
           </div>
         </div>
@@ -825,7 +826,7 @@
                   <h3>Mission - Vision</h3>
                   <!-- <img class="img-fluid d-block mx-auto" src="<?php echo $css_directory; ?>img/portfolio/01-full.jpg" alt=""> -->
                   <p>We, the St. Thérèse Private School of Mandaluyong, envision a learning community committed to develop the young to become confident, compassionate, collaborative and prayerful Christians who are prepared to meet the challenges of higher learning and of the present life. Inspired by the holy life of St. Thérèse of the Child Jesus, we provide quality education through a holistic formation that animates the young to cultivate utmost respect of individuality amidst differences.</p>
-                  
+
                   <h3>The 10 Theresian Core Values</h3>
                   <!-- <img class="img-fluid d-block mx-auto" src="<?php echo $css_directory; ?>img/portfolio/01-full.jpg" alt=""> -->
                   <p>I am a Thérèsian. St. Thérèse of the Child Jesus is my model. As a St. Thérèsian:
@@ -870,17 +871,17 @@
 
                   <p>Just like St. Thérèse of the Child Jesus, the school’s logo is free from complication that anyone who looks at it will see it as the embodiment of one of her most endearing virtues: SIMPLICITY.
 
-• As a whole, the circular logo symbolizes unity, wholeness and infinity. 
-• The curved edges of the circle symbolize a flower’s petals which is associated with femininity and motherly love. 
-• Enveloped by the curved edges are: 
+• As a whole, the circular logo symbolizes unity, wholeness and infinity.
+• The curved edges of the circle symbolize a flower’s petals which is associated with femininity and motherly love.
+• Enveloped by the curved edges are:
 
-o the outer red layer symbolizing the color of the roses that St. Thérèse promised to shower upon all on earth 
+o the outer red layer symbolizing the color of the roses that St. Thérèse promised to shower upon all on earth
 
-o the middle layer – which is beige in color – is the color of the Carmelites to which congregation the saint belonged. Within this layer is the name of the school separated by two roses from its acronym, STePS 
+o the middle layer – which is beige in color – is the color of the Carmelites to which congregation the saint belonged. Within this layer is the name of the school separated by two roses from its acronym, STePS
 
-o the center of the circle with the image of St. Thérèse carrying a bouquet of red roses and a crucifix close to her heart 
+o the center of the circle with the image of St. Thérèse carrying a bouquet of red roses and a crucifix close to her heart
 
-• “CURA PERSONALIS” (CARE FOR THE ENTIRE PERSON) is the school’s motto chosen to embody the motherly love that our pupils experience in school. Like a mother, the school does not love a person by his color, race, creed, and orientation; it sees him as a whole being, a child of God who deserves to be cared for, nurtured and loved in his entirety. 
+• “CURA PERSONALIS” (CARE FOR THE ENTIRE PERSON) is the school’s motto chosen to embody the motherly love that our pupils experience in school. Like a mother, the school does not love a person by his color, race, creed, and orientation; it sees him as a whole being, a child of God who deserves to be cared for, nurtured and loved in his entirety.
 
 The school’s aim is for everyone involved in the education of the children enrolled in STePS – the pupils’ parents and guardians, benefactors, the school administrators, the faculty and the staff of the school – to be united, to move as one in helping these budding children develop into full-bloomed flowers in their quest for learning that goes even beyond time, without losing the Christian values inculcated in them.</p>
 
@@ -962,8 +963,8 @@ Onward little children of God To the greatness we dream of.</p>
 The STePS community joins the parents in taking a personal interest in the development of each pupil – “CURA PERSONALIS (care and concern for the individual) – helping each one develop a sense of self-worth and to become a responsible member of the community.
 
 The STePS educational and formative process recognizes the stages of development each student undergoes – intellectual, emotional, affective, psychological, etc. and assists each one to mature gradually in these areas.</p>
-                  
-                  
+
+
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close </button>
@@ -1144,13 +1145,33 @@ The STePS educational and formative process recognizes the stages of development
         </div>
       </div>
     </div>
+    <?php var_dump($_SESSION); ?>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade " role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content bg-warning">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p class="bg-warning" style="color: white;padding: 10px;text-align: center;">Please check the username or password.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo $css_directory; ?>vendor/jquery/jquery.min.js"></script>
     <!-- autocomplete -->
     <link rel="stylesheet" href="<?php echo $general_class->ben_resources('lms/jquery-ui.css'); ?>">
-    
+
     <link rel="stylesheet" href="<?php echo $general_class->ben_resources('lms/jqueryui.com/style.css'); ?>">
     <script src="<?php echo $general_class->ben_resources('lms/jquery-1.12.4.js'); ?>"></script>
     <script src="<?php echo $general_class->ben_resources('lms/jquery-ui.js'); ?>"></script>
@@ -1177,6 +1198,14 @@ The STePS educational and formative process recognizes the stages of development
 
     <!-- Custom scripts for this template -->
     <script src="<?php echo $js_directory; ?>js/agency.min.js"></script>
+
+    <?php if($general_class->session->flashdata('wrong_credentials')!=""): ?>
+        <script>
+            alert("<?php echo $general_class->session->flashdata('wrong_credentials')?>");
+
+            $('#myModal').modal('show');
+        </script>
+    <?php endif; ?>
 
   </body>
 

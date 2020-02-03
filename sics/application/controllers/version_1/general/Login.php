@@ -13,10 +13,14 @@ class Login extends BEN_General {
     }
 
     public function index(){
-        $this->ben_view(__FUNCTION__);
+
+
+
+        $this->ben_redirect("general/dashboard/sms_index");
     }
     
     public function login(){
+
         $data = $this->input->post();
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required',
@@ -44,20 +48,20 @@ class Login extends BEN_General {
                 }else{
 
                     //if login not successful
-                    $this->ben_notify(array(array("danger","Login credentials does not exist.")));
+//                    $this->ben_notify(array(array("danger","Wrong Username or Password.")));
                     $this->ben_redirect("general/login/index");
                 }
             }
             else{
 
                 //if accessed through url
-                $this->ben_notify(array(array("warning","You are not authorized to access that page. ^_^")));
+//                $this->ben_notify(array(array("warning","You are not authorized to access that page. ^_^")));
                 $this->ben_redirect("general/login/index");
             }
         }else{
 
             //if user is already logged in
-            $this->ben_notify(array(array("success","You are already logged in. ^_^")));
+//            $this->ben_notify(array(array("success","You are already logged in. ^_^")));
             $this->ben_redirect("general/dashboard");
         }
     }
