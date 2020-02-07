@@ -1145,7 +1145,6 @@ The STePS educational and formative process recognizes the stages of development
         </div>
       </div>
     </div>
-    <?php var_dump($_SESSION); ?>
     <!-- Modal -->
     <div id="myModal" class="modal fade " role="dialog">
         <div class="modal-dialog">
