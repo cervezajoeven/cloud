@@ -72,10 +72,10 @@
                     <?php foreach($data as $data_key=>$data_value): ?>
                         <tr>
                             <td><?php echo $data_value['name'] ?></td>
-                            <td>₱ <?php echo number_format($data_value['amount']) ?></td>
+                            <td>₱ <?php echo number_format($data_value['amount']-$data_value['capital_used']) ?>/₱ <?php echo number_format($data_value['amount']) ?></td>
                             <td><?php echo $data_value['remarks'] ?></td>
                             <td>
-                                <button onclick="edit_data(<?php echo $data_value['id'] ?>)" class="btn btn-warning form-control"><i class="fas fa-tasks"></i>Logs</button>
+                                <button onclick="log_data(<?php echo $data_value['id'] ?>)" class="btn btn-warning form-control"><i class="fas fa-tasks"></i>Logs</button>
                             </td>
                             <td>
                                 <button onclick="edit_data(<?php echo $data_value['id'] ?>)" class="btn btn-info form-control"><i class="fas fa-pen"></i>Edit</button>
@@ -110,5 +110,8 @@
     }
     function edit_data(id){
         window.location.href = "<?php echo base_url('capital/edit/') ?>"+id;
+    }
+    function log_data(id){
+        window.location.href = "<?php echo base_url('capital/log/') ?>"+id;
     }
 </script>

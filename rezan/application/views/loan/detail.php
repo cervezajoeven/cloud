@@ -1,9 +1,9 @@
 <form action="<?php echo base_url('loan/save'); ?>" method="POST" >
-    <div class="card card-default">
+    <div class="card card-default collapsed-card">
         
 
             <div class="card-header">
-                <h3 class="card-title">Add Loan</h3>
+                <h3 class="card-title"><?php echo $loan['name']; ?> (₱ <?php echo number_format($total_collection['amount']); ?>/₱ <?php echo number_format($loan['amount']); ?>)</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -95,19 +95,19 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-                For borrowers to loan
+                Collection Details
             </div>
     </div>
 </form>
 <div class="card card-default">
     <div class="card-header">
-        <h3 class="card-title">Loans</h3>
+        <h3 class="card-title">Collection</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
         </div>
     </div>
-    <!-- /.card-header -->
+    
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
@@ -115,19 +115,15 @@
                     <tr>
                         <th>Name</th>
                         <th>Amount</th>
-                        <th>Deadline</th>
-                        <th>Details</th>
+                        <th>Date Paid</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                     <?php foreach($data as $data_key=>$data_value): ?>
                         <tr>
                             <td><?php echo $data_value['name'] ?></td>
-                            <td><?php echo $data_value['amount'] ?></td>
-                            <td><?php echo date("F d, Y",strtotime($data_value['deadline'])) ?></td>
-                            <td>
-                                <button onclick="detail_data(<?php echo $data_value['id'] ?>)" class="btn btn-primary form-control"><i class="fas fa-tasks"></i>Details</button>
-                            </td>
+                            <td>₱ <?php echo number_format($data_value['amount']) ?></td>
+                            <td><?php echo date("F d, Y",strtotime($data_value['date_created'])) ?></td>
                             <td>
                                 <button onclick="edit_data(<?php echo $data_value['id'] ?>)" class="btn btn-info form-control"><i class="fas fa-pen"></i>Edit</button>
                             </td>

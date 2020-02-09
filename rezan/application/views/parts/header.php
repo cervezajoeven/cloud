@@ -85,8 +85,8 @@
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
-                            <li class="nav-item has-treeview menu-open">
-                                <a href="#" class="nav-link active">
+                            <li class="nav-item has-treeview <?php echo (in_array('transactions',$this->navigation))?'menu-open':''; ?>">
+                                <a href="#" class="nav-link <?php echo (in_array('transactions',$this->navigation))?'active':''; ?>">
                                     <i class="nav-icon fas fa-money-bill-wave"></i>
                                     <p>
                                         Transactions
@@ -95,21 +95,21 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?php echo base_url('collection'); ?>" class="nav-link active">
+                                        <a href="<?php echo base_url('collection'); ?>" class="nav-link <?php echo (in_array('collection',$this->navigation))?'active':''; ?>">
                                             <i class="fas fa-money-bill nav-icon"></i>
                                             <p>Collection</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="<?php echo base_url('loan'); ?>" class="nav-link">
+                                        <a href="<?php echo base_url('loan'); ?>" class="nav-link <?php echo (in_array('loan',$this->navigation))?'active':''; ?>">
                                             <i class="fas fa-credit-card nav-icon"></i>
                                             <p>Loan</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item has-treeview <?php echo (in_array('manage',$this->navigation))?'menu-open':''; ?>">
+                                <a href="#" class="nav-link <?php echo (in_array('manage',$this->navigation))?'active':''; ?>">
                                     <i class="nav-icon fas fa-tasks"></i>
                                     <p>
                                         Manage
@@ -118,27 +118,45 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?php echo base_url('borrower'); ?>" class="nav-link">
+                                        <a href="<?php echo base_url('borrower'); ?>" class="nav-link <?php echo (in_array('borrowers',$this->navigation))?'active':''; ?>">
                                             <i class="fas fa-hand-holding-heart nav-icon"></i>
                                             <p>Borrowers</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="<?php echo base_url('capital'); ?>" class="nav-link">
+                                        <a href="<?php echo base_url('capital'); ?>" class="nav-link <?php echo (in_array('capitals',$this->navigation))?'active':''; ?>">
                                             <i class="fas fa-wallet nav-icon"></i>
                                             <p>Capitals</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="<?php echo base_url('loaner'); ?>" class="nav-link">
+                                        <a href="<?php echo base_url('loaner'); ?>" class="nav-link <?php echo (in_array('loaners',$this->navigation))?'active':''; ?>">
                                             <i class="fas fa-hands nav-icon"></i>
                                             <p>Loaners</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
+
+                            <li class="nav-item has-treeview <?php echo (in_array('report',$this->navigation))?'menu-open':''; ?>">
+                                <a href="#" class="nav-link <?php echo (in_array('report',$this->navigation))?'active':''; ?>">
+                                    <i class="nav-icon fas fa-scroll"></i>
+                                    <p>
+                                        Reports
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?php echo base_url('report'); ?>" class="nav-link <?php echo (in_array('date_reports',$this->navigation))?'active':''; ?>">
+                                            <i class="fas fa-calendar nav-icon"></i>
+                                            <p>Date Reports</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
-                                <a href="pages/widgets.html" class="nav-link">
+                                <a href="pages/widgets.html" class="nav-link <?php echo (in_array('settings',$this->navigation))?'active':''; ?>">
                                     <i class="nav-icon fas fa-cogs"></i>
                                     <p>
                                         Settings

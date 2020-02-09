@@ -13,6 +13,7 @@ class Loaner extends CI_Controller {
 		$this->model = $this->loaner_model;
 		$this->controller = "loaner";
 		$this->table = "loaner";
+		$this->navigation = array("manage","loaners");
 	}
 
 	public function index()

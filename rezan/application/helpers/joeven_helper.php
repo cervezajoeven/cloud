@@ -5,5 +5,8 @@ function library_link($date=""){
 
 }
 
+function joeven_date($date){
+	return date("F d, Y",strtotime($date));
+}
 
 ?>

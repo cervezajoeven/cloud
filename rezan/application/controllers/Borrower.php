@@ -12,6 +12,7 @@ class Borrower extends CI_Controller {
 		$this->model = $this->borrower_model;
 		$this->controller = "borrower";
 		$this->table = "borrower";
+		$this->navigation = array("manage","borrowers");
 	}
 
 	public function index()

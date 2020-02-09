@@ -46,4 +46,35 @@ class Capital_model extends CI_Model {
                 
         }
 
+        public function total_loan()
+        {
+                $this->db->select("
+                        *,
+                        capital.id as id,
+                        (SELECT SUM(loan.amount) FROM loan WHERE capital_id = capital.id AND loan.deleted = 0) as capital_used
+                ");
+                $this->db->join("loaner","loaner.id = capital.loaner_id");
+                $this->db->where("capital.deleted",0);
+                $this->db->from($this->table);
+                // echo "<pre>";
+                // print_r($this->db->get()->result_array());
+                // exit();
+                return $this->db->get()->result_array();
+        }
+
+        public function loans()
+        {
+                $this->db->select("
+                        *,
+                        capital.id as id,
+                ");
+                $this->db->join("loaner","loaner.id = capital.loaner_id");
+                $this->db->where("capital.deleted",0);
+                $this->db->from($this->table);
+                // echo "<pre>";
+                // print_r($this->db->get()->result_array());
+                // exit();
+                return $this->db->get()->result_array();
+        }
+
 }

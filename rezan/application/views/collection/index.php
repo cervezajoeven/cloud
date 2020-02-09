@@ -3,7 +3,7 @@
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>₱ 45,000</h3>
+                <h3>₱ <?php echo number_format($total_collection_today)?></h3>
 
                 <p>Collection Today</p>
             </div>
@@ -16,9 +16,23 @@
     <!-- ./col -->
     <div class="col-lg-3 col-6">
         <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3><?php echo count($data)?></h3>
+
+                <p>Number of Payments Today</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>12</h3>
+                <h3><?php echo count($total_payers_today)?></h3>
 
                 <p>Number of Payers Today</p>
             </div>
@@ -105,7 +119,7 @@
                     <?php foreach($data as $data_key=>$data_value): ?>
                         <tr>
                             <td><?php echo $data_value['name'] ?></td>
-                            <td><?php echo $data_value['amount'] ?></td>
+                            <td>₱ <?php echo number_format($data_value['amount']) ?></td>
                             
                             <td>
                                 <button onclick="edit_data(<?php echo $data_value['id'] ?>)" class="btn btn-info form-control"><i class="fas fa-pen"></i>Edit</button>

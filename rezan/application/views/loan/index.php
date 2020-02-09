@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label>Amount</label>
-                            <input type="number" readonly="" min="100" value="2000" onkeyup="calculate_gives_payable();calculate_expected_receivable();" class="form-control amount" name="amount">
+                            <input type="number" min="100" value="2000" onkeyup="calculate_gives_payable();calculate_expected_receivable();" class="form-control amount" name="amount">
                         </div>
                         
                         

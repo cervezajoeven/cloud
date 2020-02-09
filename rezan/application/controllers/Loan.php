@@ -13,6 +13,7 @@ class Loan extends CI_Controller {
 		$this->model = $this->loan_model;
 		$this->controller = "loan";
 		$this->table = "loan";
+		$this->navigation = array("transactions","loan");
 	}
 
 	public function index()
@@ -29,7 +30,12 @@ class Loan extends CI_Controller {
 	{
 		$this->data['capitals'] = $this->capital_model->all();
 		$this->data['borrowers'] = $this->borrower_model->all();
-		$this->data['loan'] = $this->loan_model->get($id);
+		$this->data['loan'] = $this->loan_model->loan($id);
+		$this->data['total_collection'] = $this->collection_model->total_collection($id);
+		$this->data['data'] = $this->collection_model->get_loan($id);
+		// echo "<pre>";
+		// print_r($this->data['total_collection']);
+		// exit();
 		$this->load->view('parts/header');
 		$this->load->view($this->controller."/".__FUNCTION__,$this->data);
 		
