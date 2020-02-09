@@ -108,6 +108,12 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="<?php echo $general_class->ben_link('general/dashboard/circulation')?>">
+                            <i class="material-icons" style="color: pink!important;">book</i>
+                            <span>Circulation</span>
+                        </a>
+                    </li>
 
 
                     <?php if(strtolower($general_class->session->userdata('account_type_name'))=="student"):?>
