@@ -107,6 +107,18 @@
                             <span>Home</span>
                         </a>
                     </li>
+                    <li class="<?php if(in_array('blackboard', $general_class->toggled)): echo 'active'; endif; ?>">
+                        <a href="<?php echo $general_class->ben_link('lms/blackboard/index')?>">
+                            <img style="height: 30px" src="<?php echo $general_class->ben_resources('images/lesson.png')?>">
+                            <span>Lesson (Beta)</span>
+                        </a>
+                    </li>
+                    <li class="<?php if(in_array('blackboard', $general_class->toggled)): echo 'active'; endif; ?>">
+                        <a href="<?php echo $general_class->ben_link('general/survey/index')?>">
+                            <i class="material-icons" style="color: red!important;">list</i>
+                            <span>Survey</span>
+                        </a>
+                    </li>
 
                     <li>
                         <a href="<?php echo $general_class->ben_link('general/dashboard/circulation')?>">
