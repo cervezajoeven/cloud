@@ -13,6 +13,7 @@ li {
 
 .sortable{
 	background-color: none;
+	z-index: 1;
 }
 
 /*Set the row height to the viewport*/
@@ -139,6 +140,7 @@ body{
 	padding: 0px!important;
 	position: fixed;
 	background-color: rgb(230,230,230);
+	z-index: 10;
 }
 .info-title{
 	color: white;
@@ -150,6 +152,8 @@ body{
 .option-container{
 	background-color: rgb(200,200,200);
 	border: 2px solid black;
+	padding: 10px;
+	cursor: pointer;
 }
 .numbering_option{
 	display: inline;
@@ -157,12 +161,18 @@ body{
 .remove_option{
 	display: inline;
 	float: right;
-	border: 1px solid red;
 	width: 20px;
 	height: 20px;
 	text-align: center;
 	color: white;
 	background-color: rgb(255, 85, 85);
+	cursor: pointer;
+	transition: .4s;
+}
+.remove_option:hover{
+	color: black;
+	background-color: white;
+	cursor: pointer;
 }
 .info-key{
 	background-color: #333;
@@ -197,4 +207,9 @@ body{
 .option_type input{
 	display: inline;
 	width: 20px;
+}
+.save:hover{
+	color:white;
+	cursor: pointer;
+	background-color: #333!important;
 }

@@ -17,11 +17,6 @@
 		<div class = "container-fluid">
 	      	<div class = "row row-height">
 		        <div class = "col-sm-7 left">
-		        	<form enctype="multipart/form-data" method="POST" action="<?php echo $general_class->ben_link('general/survey/upload/'.$general_class->data['survey_id']); ?>">
-		        		<a href="<?php echo $general_class->ben_link('general/survey/index/'); ?>"><button type="button" class="form-control btn btn-danger">Back</button></a>
-		        		<input type="file" required="" class="form-control" accept="application/pdf" name="survey_form">
-		        		<input type="submit" class="form-control btn btn-success">
-		        	</form>
 		        	
 	            	<iframe style="height: 100%;width: 100%;" id="optical_pdf" class="embed-responsive-item" src="<?php echo $general_class->ben_resources('pdfjs/web/viewer.html?file=').urlencode($general_class->ben_resources('uploads/survey/'.$general_class->data['survey_id'].'/'.$general_class->data['survey']['survey_file'])); ?>"></iframe>
 		            	
@@ -29,7 +24,13 @@
 
 		        <div class="col-sm-5 right">
 		        	<div class="info col-sm-5">
-		        	
+		        		<!-- <div class="info-row">
+		        			<div class="info-tab info-title col-sm-2">Name :</div>
+		        			<div class="info-tab col-sm-4"><?php echo $data['account_profile']['first_name']; ?> <?php echo $data['account_profile']['last_name']; ?></div>
+		        			<div class="info-tab info-title col-sm-2">Section :</div>
+			        		<div class="info-tab col-sm-4">Apolinario</div>
+		        		</div> -->
+
 		        		<div class="info-row">
 			        		<div class="info-tab info-title col-sm-3">Date :</div>
 			        		<div class="info-tab col-sm-9">February 21, 2020</div>
@@ -39,15 +40,10 @@
 			        		<div class="info-tab info-title col-sm-3">Title :</div>
 			        		<div class="info-tab col-sm-9"><?php echo $general_class->data['survey']['survey_name']?></div>
 		        		</div>
-		        		<div class="info-row">
-			        		<div class="info-tab info-key col-sm-3" option_type="multiple_choice">Multiple Choice</div>
-			        		<div class="info-tab info-key col-sm-3" option_type="short_answer">Short Answer</div>
-			        		<div class="info-tab info-key col-sm-3" option_type="long_answer">Long Answer</div>
-			        		<div class="info-tab info-key col-sm-3" option_type="multiple_answer">Multiple Answer</div>
-		        		</div>
+		        		
 		        		<div class="info-row save">
-			        		<div class="info-tab col-sm-12">
-			        			<center>Save</center>
+			        		<div class="info-tab col-sm-12" style="background-color: green;color: white;height: 30px;">
+			        			<center>Submit</center>
 			        		</div>
 		        		</div>
 		        	</div>
@@ -95,20 +91,21 @@
 </html>
 <script type="text/javascript" src="<?php echo $general_class->ben_resources('lms/jquery-1.12.4.js')?>"></script>
 <script type="text/javascript" src="<?php echo $general_class->ben_resources('lms/jquery-ui.js')?>"></script>
-<script type="text/javascript" src="https://nosir.github.io/cleave.js/dist/cleave.min.js"></script>
-<script type="text/javascript" src="https://nosir.github.io/cleave.js/dist/cleave-phone.i18n.js"></script>
 <!-- <script type="text/javascript" src="<?php echo $general_class->ben_resources('lms/survey.js')?>"></script> -->
 <script type="text/javascript">
 
-	var url = "<?php echo $general_class->ben_link('general/survey/update'); ?>";
-	var stored_json = '<?php echo $general_class->data['survey']['sheet']; ?>';
+	var url = "<?php echo $general_class->ben_link('general/survey/update_survey_sheet'); ?>";
+	var stored_json = '<?php echo $general_class->data["survey"]["sheet"]; ?>';
+	var account_id = '<?php echo $general_class->session->userdata("id"); ?>';
 	var final_json = {};
 	
-	$(".sortable").sortable({
-		stop:function(event,ui){
-			renumbering();
-		}
-	});
+	// $(".sortable").sortable({
+	// 	stop:function(event,ui){
+	// 		renumbering();
+	// 	}
+	// });
+
+	
 	$(".option-container-clonable").hide();
 
 	function populate_key(option_type){
@@ -164,6 +161,25 @@
 		$.each(total_number,function(key,value){
 			$(value).find(".numbering_option").text(key+1);
 			$(value).find(".option_type").find("input").attr("name","option_"+key+1);
+			// new Cleave($(value).find(".option_type").find("input"), {
+			//     numeral: true,
+			// });
+			$(value).find(".option_type").find("input").on('keypress', function (event) {
+			    var regex = new RegExp("^[a-zA-Z0-9 ]+$");
+			    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+			    if (!regex.test(key)) {
+			       event.preventDefault();
+			       return false;
+			    }
+			});
+			$(value).find(".option_type").find("textarea").on('keypress', function (event) {
+			    var regex = new RegExp("^[a-zA-Z0-9 ]+$");
+			    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+			    if (!regex.test(key)) {
+			       event.preventDefault();
+			       return false;
+			    }
+			});
 		});
 	}
 	$(document).ready(function(){
@@ -216,16 +232,38 @@
 			if(the_option_type=="multiple_choice"||the_option_type=="multiple_answer"){
 				var option_val = [];
 				$.each($(value).find(".option"),function(option_key,option_value){
-					 option_val.push($(option_value).find(".option_label_input").find("input").val());
+					console.log();
+					if($(option_value).find(".option_type").find("input").is(":checked")){
+					 	option_val.push(1);
+					}else{
+						option_val.push(0);
+					}
 				});
 				option_json = {
 					"type":the_option_type,
-					"option_labels":option_val.join(","),
+					"answer":option_val.join(","),
 				};
-			}else{
+			}else if(the_option_type=="long_answer"){
+				var option_val = [];
+				$.each($(value).find(".option"),function(option_key,option_value){
+					
+					option_val.push($(option_value).find(".option_type").find("textarea").val());
+					
+				});
 				option_json = {
 					"type":the_option_type,
-					"option_labels":"",
+					"answer":option_val.join(","),
+				};
+			}else if(the_option_type=="short_answer"){
+				var option_val = [];
+				$.each($(value).find(".option"),function(option_key,option_value){
+					
+					option_val.push($(option_value).find(".option_type").find("input").val());
+					
+				});
+				option_json = {
+					"type":the_option_type,
+					"answer":option_val.join(","),
 				};
 			}
 			json.push(option_json);
@@ -233,16 +271,25 @@
 			
 			
 		});
-		final_json = {id:"<?php echo $general_class->data['survey_id'] ?>",sheet:JSON.stringify(json)};
+		final_json = {survey_id:"<?php echo $general_class->data['survey_id'] ?>",respond:JSON.stringify(json),account_id:account_id};
+
 		$.ajax({
 		    url: url,
 		    type: "POST",
 		    data: final_json,
 		    // contentType: "application/json",
 		    complete: function(response){
-		    	alert("Sucessfully Saved!");
+		    	console.log(response);
+		    	alert("Sucessfully Submitted!");
+		    	window.location.replace("<?php echo $general_class->ben_link('general/survey/assigned') ?>/");
 		    }
 		});
 	});
+
+	$(".add_option").remove();
+	$(".option_type").find("input").addClass();
+	$(document).find(".option_label_input").find("input").attr("disabled","");
+	$(document).find(".remove_option").remove();
+	
 
 </script>

@@ -162,6 +162,13 @@ class BEN_Model extends CI_Model {
         $this->db->insert("synchronization", $synchronization);
     }
 
+    public function id_generator($table){
+        $this->mode;
+        $id = $table."_".$this->mode."_".microtime(true)*10000;
+        $id = $id.rand(1000,1999);
+        return $id;
+    }
+
     public function create_new($table="",$data=array()){
         
         if($table&&is_string($table)){

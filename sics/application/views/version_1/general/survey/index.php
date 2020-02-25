@@ -63,8 +63,8 @@
                                 <td><?php echo $data_value['first_name']; ?> <?php echo $data_value['last_name']; ?></td>
                                 <td><?php echo date("h:i A, F d, Y",strtotime($data_value['date_created'])); ?></td>
                                 <td>
-                                    <button class="form-control btn btn-warning update">Update</button>
-                                    <button class="form-control btn btn-danger delete">Delete</button>
+                                    <button data-id="<?php echo $data_value['id']; ?>" class="form-control btn btn-warning update">Update</button>
+                                    <button data-id="<?php echo $data_value['id']; ?>" class="form-control btn btn-danger delete">Delete</button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -97,7 +97,12 @@
 
     $(".delete").click(function(){
         if(confirm("Are you sure you want to delete this survey?")){
-            window.location.replace("<?php echo $general_class->ben_link('general/survey/delete') ?>/<?php echo $data_value['id'] ?>");
+            window.location.replace("<?php echo $general_class->ben_link('general/survey/delete') ?>/"+$(this).attr('data-id'));
+        }
+    });
+    $(".update").click(function(){
+        if(confirm("Are you sure you want to update this survey?")){
+            window.location.replace("<?php echo $general_class->ben_link('general/survey/edit') ?>/"+$(this).attr('data-id'));
         }
     });
 

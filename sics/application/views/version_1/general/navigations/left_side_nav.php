@@ -114,10 +114,18 @@
                         </a>
                     </li>
                     <li class="<?php if(in_array('blackboard', $general_class->toggled)): echo 'active'; endif; ?>">
-                        <a href="<?php echo $general_class->ben_link('general/survey/index')?>">
-                            <i class="material-icons" style="color: red!important;">list</i>
-                            <span>Survey</span>
-                        </a>
+                        <?php if($general_class->session->userdata('account_type_id')==3): ?>
+                            <a href="<?php echo $general_class->ben_link('general/survey/index')?>">
+                                <i class="material-icons" style="color: red!important;">list</i>
+                                <span>Survey</span>
+                            </a>
+
+                        <?php else: ?>
+                            <a href="<?php echo $general_class->ben_link('general/survey/assigned')?>">
+                                <i class="material-icons" style="color: red!important;">list</i>
+                                <span>Survey</span>
+                            </a>
+                        <?php endif; ?>
                     </li>
 
                     <li>

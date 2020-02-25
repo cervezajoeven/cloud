@@ -104,4 +104,8 @@ function array_sort_status($sort){
     else
         return false;            
 }
+
+function id_generator(){
+    
+}
 ?>
