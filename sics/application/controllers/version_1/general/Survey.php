@@ -30,9 +30,14 @@ class Survey extends BEN_General {
 
         $this->data['survey'] = $this->survey_model->get("survey",$data);
         $this->data['account_profile'] = $this->survey_model->ben_where("profile","account_id",$this->session->userdata('id'))[0];
-        
-        if($this->survey_model->ben_where("survey_sheets","survey_id",$id)){
-            // echo "<script>alert('Survey has already been responded');window.location.replace('".$this->ben_link('general/survey/assigned')."')</script>";
+        $this->db->select("*");
+        $this->db->where("account_id",$this->data['account_profile']['account_id']);
+        $this->db->where("survey_id",$id);
+        $this->db->where("response_status",1);
+        $query = $this->db->get("survey_sheets");
+        $response = $query->result_array();
+        if(!empty($response)){
+            echo "<script>alert('Survey has already been responded');window.location.replace('".$this->ben_link('general/survey/assigned')."')</script>";
             
             $this->ben_view_ultraclear(__FUNCTION__);
         }else{
@@ -72,6 +77,7 @@ class Survey extends BEN_General {
         $data['survey_id'] = $_REQUEST['survey_id'];
         $data['respond'] = $_REQUEST['respond'];
         $data['account_id'] = $_REQUEST['account_id'];
+        $data['response_status'] = 1;
         $this->db->select("*");
         $this->db->where("survey_id", $data["survey_id"]);
         $this->db->where("account_id", $data["account_id"]);

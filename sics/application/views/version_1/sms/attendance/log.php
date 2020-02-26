@@ -180,6 +180,8 @@
 
     $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
         $(this).val('');
+        start_date = '';
+        end_date = '';
     });
 
     $('#btnshow').on('click', function(e) {

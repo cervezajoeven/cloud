@@ -127,11 +127,20 @@
                             </a>
                         <?php endif; ?>
                     </li>
+                    <?php if($general_class->session->userdata('account_type_id')==3): ?>
+                        <li class="<?php if(in_array('blackboard', $general_class->toggled)): echo 'active'; endif; ?>">
+                            
+                                <a href="<?php echo $general_class->ben_link('general/survey_report/index')?>">
+                                    <i class="material-icons" style="color: red!important;">list</i>
+                                    <span>Survey Reports</span>
+                                </a>
+                        </li>
+                    <?php endif; ?>
 
                     <li>
                         <a href="<?php echo $general_class->ben_link('general/dashboard/circulation')?>">
                             <i class="material-icons" style="color: pink!important;">book</i>
-                            <span>Circulation</span>
+                            <span>SICS Circula</span>
                         </a>
                     </li>
 
