@@ -50,8 +50,7 @@
                                         <?php echo $general_class->session->userdata('first_name') ?> <?php echo $general_class->session->userdata('last_name') ?>
                                     </a>
                                     <li>
-                                        
-                                    </li>
+                                        <?php echo $general_class->session->userdata('id') ?>
                                     
                                 </ul>
                             </li>
@@ -115,6 +114,10 @@
                     </li>
                     <li class="<?php if(in_array('blackboard', $general_class->toggled)): echo 'active'; endif; ?>">
                         <?php if($general_class->session->userdata('account_type_id')==3): ?>
+                            <a href="<?php echo $general_class->ben_link('general/survey/assigned')?>">
+                                <i class="material-icons" style="color: red!important;">list</i>
+                                <span>Answer Survey</span>
+                            </a>
                             <a href="<?php echo $general_class->ben_link('general/survey/index')?>">
                                 <i class="material-icons" style="color: red!important;">list</i>
                                 <span>Survey</span>
