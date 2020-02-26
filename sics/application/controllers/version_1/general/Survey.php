@@ -37,13 +37,21 @@ class Survey extends BEN_General {
         $query = $this->db->get("survey_sheets");
         $response = $query->result_array();
         if(!empty($response)){
-            echo "<script>alert('Survey has already been responded');window.location.replace('".$this->ben_link('general/survey/assigned')."')</script>";
+            echo "<script>alert('Survey has already been responded ".$this->data['account_profile']['account_id']."');window.location.replace('".$this->ben_link('general/survey/assigned')."')</script>";
             
             $this->ben_view_ultraclear(__FUNCTION__);
         }else{
-            $survey_data['survey_id'] = $id;
-            $survey_data['account_id'] = $this->session->userdata('id');
-            $this->survey_model->create_new("survey_sheets",$survey_data);
+            $this->db->select("*");
+            $this->db->where("account_id",$this->data['account_profile']['account_id']);
+            $this->db->where("survey_id",$id);
+            $new_query = $this->db->get("survey_sheets");
+            $new_response = $new_query->result_array();
+            if(empty($new_response)){
+                $survey_data['survey_id'] = $id;
+                $survey_data['account_id'] = $this->session->userdata('id');
+                $this->survey_model->create_new("survey_sheets",$survey_data);
+                
+            }
             $this->ben_view_ultraclear(__FUNCTION__);
         }
         
