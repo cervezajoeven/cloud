@@ -41,8 +41,8 @@
 		        		</div>
 		        		<div class="info-row">
 			        		<div class="info-tab info-key col-sm-3" option_type="multiple_choice">Multiple Choice</div>
-			        		<div class="info-tab info-key col-sm-3" option_type="short_answer">Short Answer</div>
-			        		<div class="info-tab info-key col-sm-3" option_type="long_answer">Long Answer</div>
+			        		<!-- <div class="info-tab info-key col-sm-3" option_type="short_answer">Answers</div> -->
+			        		<div class="info-tab info-key col-sm-6" option_type="long_answer"><center>Comments/Suggestions</center></div>
 			        		<div class="info-tab info-key col-sm-3" option_type="multiple_answer">Multiple Answer</div>
 		        		</div>
 		        		<div class="info-row save">

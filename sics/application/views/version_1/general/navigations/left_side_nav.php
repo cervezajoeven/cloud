@@ -140,7 +140,7 @@
                     <li>
                         <a href="<?php echo $general_class->ben_link('general/dashboard/circulation')?>">
                             <i class="material-icons" style="color: pink!important;">book</i>
-                            <span>SICS Circula</span>
+                            <span>SICS Circular</span>
                         </a>
                     </li>
 

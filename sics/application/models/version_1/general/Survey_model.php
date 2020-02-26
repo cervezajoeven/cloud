@@ -22,6 +22,7 @@ class Survey_model extends BEN_Model {
         $this->db->select('*');
         $this->db->from('survey');
         $this->db->where("FIND_IN_SET('".$account_id."', assigned) !=", 0);
+        $this->db->where("deleted", 0);
 
         $query = $this->db->get();
 
