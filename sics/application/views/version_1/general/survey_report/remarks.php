@@ -192,42 +192,26 @@
 
                 <div class="w3-container" id="resp-container">
 					<?php
-
-						// $questions_cnt = 0;
-
-						// if ($data[0]['respond'] != null)
-						// 	$questions_cnt = count(json_decode($data[0]['respond']));
-
-						// for($i=0; $i<$questions_cnt; $i++) {
-						// 	print('<div class="w3-panel w3-card-2">');
-						// 	print('<div class="radio">');
-						// 	printf('<label class="sort_number" style="font-size: 1.5em">%s</label>', $i+1);
-						// 	print('</div>');
-						// 	printf('<canvas id="myChart_%s" width="600" height="250"></canvas>', $i+1);
-						// 	printf('<div id="resp_%s" class="w3-center"></div>', $i+1);
-                    	// 	print('</div>');
-						// }
-
 						if ($data[0]['respond'] != null) {
 							$respond = json_decode($data[0]['respond']);							
-							$i = 0;
+							$idx = 0;
 
 							foreach($respond as $resp) {
-								if ($resp->type != "long_answer" && $resp->type != "short_answer") {
+								if ($resp->type == "long_answer" || $resp->type == "short_answer") {
 									print('<div class="w3-panel w3-card-2">');
 									print('<div class="radio">');
-									printf('<label class="sort_number" style="font-size: 1.5em">%s</label>', $i+1);
+									printf('<label class="sort_number" style="font-size: 1.5em">%s</label>', $idx+1);
 									print('</div>');
-									printf('<canvas id="myChart_%s" width="600" height="250"></canvas>', $i+1);
-									printf('<div id="resp_%s" class="w3-center"></div>', $i+1);
+									printf('<div id="remark_%s" style="max-height:250px; overflow:auto;"></div>', $idx+1);
+									printf('<div id="resp_%s" class="w3-center"></div>', $idx+1);
 									print('</div>');
 								}
 
-								$i++;
+								$idx++;
 							}
 						} else {
 
-						}
+						}						
 					?>
                 </div>
 
@@ -240,16 +224,16 @@
 <script type="text/javascript">   	
 	var resp_data;
 
-	async function showResponses() {
-		await getResponses();	
+	async function showRemarks() {
+		await getRemarks();	
 	}
 
 	$(document).ready(function() {
-		showResponses();				
+		showRemarks();				
 	});
 
-	function getResponses() {
-		fetch('<?php echo $general_class->ben_link('general/survey_report/get_responses/'.$data[0]['survey_id'])?>') 
+	function getRemarks() {
+		fetch('<?php echo $general_class->ben_link('general/survey_report/get_remarks/'.$data[0]['survey_id'])?>') 
 		.then((resp) => resp.json())
 		.then(function(data) {
 			//alert(data);
@@ -257,169 +241,26 @@
 			resp_data = data;
 
 			var display="";
-			var chart_ctr = 1;
+			var remarks_ctr = 1;
 
 			//-- Show charts
-			$.each(data, function() {
-				console.log(data[chart_ctr-1].answer_choices);
+			$.each(data, function() {				
+				$remarks_data = data[remarks_ctr-1].remarks;
+				$list = '';
 
-				if (data[chart_ctr-1].answer_choices != '') {
-					$('#resp_' + chart_ctr).html('<h4>RESPONDENTS: '+data[chart_ctr-1].respondents+'</h4>')
-
-					var config = {
-						type: 'bar',
-						data: {
-							datasets: [{
-								label: 'Question ' + chart_ctr,
-								data: data[chart_ctr-1].answers_count.map(Number),
-								fill: false,
-								backgroundColor: [window.chartColors.green,
-												window.chartColors.blue,
-												window.chartColors.red,
-												window.chartColors.orange,
-												window.chartColors.yellow,
-												window.chartColors.purple,
-												window.chartColors.grey]
-							}],
-							labels: data[chart_ctr-1].answer_choices
-						},
-						options: {
-							scales: {
-								yAxes: [{
-									ticks: {
-										precision: 0
-									}
-								}]
-							},
-							responsive: true,
-							maintainAspectRatio: true,
-							layout: {
-								padding: {
-									left: 0,
-									right: 0,
-									top: 0,
-									bottom: 15
-								}
-							},
-							plugins: {
-								datalabels: {
-									anchor: 'end',
-									backgroundColor: function(context) {
-										return context.dataset.backgroundColor;
-									},
-									borderColor: 'white',
-									borderRadius: 25,
-									borderWidth: 2,
-									color: 'white',
-									font: {
-										weight: 'bold'
-									},
-									formatter: (value, ctx) => {
-										let sum = 0;
-										let dataArr = ctx.chart.data.datasets[0].data;
-										dataArr.map(data => {
-											sum += data;
-										});
-										let percentage = (value*100 / sum).toFixed(1)+"%";
-										return percentage;
-									},
-								}
-							}
-						}
-					};
-					
-					var can_id="canvas"+chart_ctr;
-					var ctx = $('#myChart_'+chart_ctr);
-					window.can_id = new Chart(ctx, config);
+				for(i=0; i<$remarks_data.length; i++) {
+					$list += '<li>' + $remarks_data[i] + '</ti>';
 				}
-				
 
-				chart_ctr++;
+				$("#remark_"+remarks_ctr).html('<ul class="w3-ul">'+$list+'</ul>');
+
+				$('#resp_' + remarks_ctr).html('<h4>RESPONDENTS: '+data[remarks_ctr-1].respondents+'</h4>');				
+				remarks_ctr++;
 			});					
 		})
 		.catch(function(error) {
 			// This is where you run code if the server returns any errors
+			console.log(error);
 		});
 	}
-
-	// window.onload = function() {
-	// 	var ctx = $('#myChart');
-	// 	window.myPie = new Chart(ctx, config);
-	// };
-
-	// var randomScalingFactor = function() {
-	// 	return Math.round(Math.random() * 100);
-	// };
-
-	// var config = {
-	// 	type: 'pie',
-	// 	data: {
-	// 		datasets: [{
-	// 			data: [
-	// 				randomScalingFactor(),
-	// 				randomScalingFactor(),
-	// 			],
-	// 			backgroundColor: [
-	// 				window.chartColors.green,
-	// 				window.chartColors.blue,
-	// 				window.chartColors.red,
-	// 				window.chartColors.orange,
-	// 				window.chartColors.yellow,
-	// 			],
-	// 			label: 'Dataset 1'
-	// 		}],
-	// 		labels: [
-	// 			'YES',
-	// 			'NO',
-	// 		]
-	// 	},
-	// 	options: {
-	// 		responsive: false,
-	// 		layout: {
-	// 			padding: {
-	// 				left: 0,
-	// 				right: 0,
-	// 				top: 0,
-	// 				bottom: 10
-	// 			}
-	// 		}
-	// 	}
-	// };
-
-	
-
-	// Morris.Donut({
-	// 	element: 'donut-example',
-	// 	data: [
-	// 		{label: "Download Sales", value: 12},
-	// 		{label: "In-Store Sales", value: 30},
-	// 		{label: "Mail-Order Sales", value: 20}
-	// 	]
-	// });
-
-	// Morris.Bar({
-	// 	element: 'bar-example',
-	// 	data: [
-	// 		{ y: '2006', a: 100, b: 90 },
-	// 		{ y: '2007', a: 75,  b: 65 },
-	// 		{ y: '2008', a: 50,  b: 40 },
-	// 		{ y: '2009', a: 75,  b: 65 },
-	// 		{ y: '2010', a: 50,  b: 40 },
-	// 		{ y: '2011', a: 75,  b: 65 },
-	// 		{ y: '2012', a: 100, b: 90 }
-	// 	],
-	// 	xkey: 'y',
-	// 	ykeys: ['a', 'b'],
-	// 	labels: ['Series A', 'Series B']
-	// });
-
-	// Morris.Donut({
-	// 	element: 'donut-example2',
-	// 	data: [
-	// 		{label: "Download Sales", value: 12},
-	// 		{label: "In-Store Sales", value: 30},
-	// 		{label: "Mail-Order Sales", value: 20}
-	// 	]
-	// });
-
 </script>

@@ -30,7 +30,8 @@
                                 <td><?php echo date("h:i A, F d, Y",strtotime($data_value['date_created'])); ?></td>
                                 <td>
                                     <!-- <a href="<?php //echo $general_class->ben_link('general/survey_report/responses?id='.$data_value['id'])?>" class="btn btn-success">View</a> -->
-                                    <button type="button" class="btn btn-success" onclick="viewFunc('<?php echo $data_value['id']?>')">View</button>
+                                    <button type="button" class="btn btn-success" onclick="viewFunc('<?php echo $data_value['id']?>')">View Result</button>
+                                    <button type="button" class="btn btn-primary" onclick="viewRemarks('<?php echo $data_value['id']?>')">View Remarks</button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -59,8 +60,11 @@
         "aaSorting": []
     });
 
-    function viewFunc(surveyid) {
-        
+    function viewFunc(surveyid) {        
         window.location.replace('<?php echo $general_class->ben_link('general/survey_report/respond/') ?>' + surveyid);
+    }
+
+    function viewRemarks(surveyid) {
+        window.location.replace('<?php echo $general_class->ben_link('general/survey_report/remarks/') ?>' + surveyid);
     }
 </script>
