@@ -168,6 +168,50 @@
 		canvas{
 			margin: 0 auto;
 		}
+
+		.question_container{
+			border: 2px solid black;
+			margin-bottom: 20px;
+			page-break-inside: avoid;
+		}
+		.question_container .radio{
+			margin: 0;
+			background-color: rgb(100,100,100);
+			color: white;
+		}
+		.w3-center{
+			color: white;
+
+			background-color: rgb(72, 159, 72);
+		}
+		.w3-center h4{
+			margin: 0;
+			padding:10px;
+		}
+
+		.for_print{
+			display: none;
+		}
+
+		@media print {
+			.left {
+				display: none;
+			}
+			.right, .right * {
+				visibility: visible;
+				display: block;
+				width: auto;
+				height: auto;
+				overflow: visible;
+			}
+			.for_print{
+				display: block;
+			}
+			.for_display{
+				display: none;
+			}
+
+		}
     </style>
 </head>
 <body style="margin: 0">
@@ -178,7 +222,7 @@
 	        	<iframe style="height: 96%;width: 100%;" id="optical_pdf" class="embed-responsive-item" src="<?php echo $general_class->ben_resources('pdfjs/web/viewer.html?file=').urlencode($general_class->ben_resources('uploads/survey/'.$data[0]['survey_id'].'/'.$data[0]['survey_pdf_file_name'])); ?>"></iframe>
 	        </div>
 	        <div class="col-sm-6 right">
-	        	<table class="table table-bordered table-striped" style="margin:0">
+	        	<table class="table table-bordered table-striped for_display" style="margin:0">
                     <!-- <tr>
                         <a href="<?php //echo $general_class->ben_link('general/survey_report/index')?>"><button class="btn btn-success form-control" type="button">Back</button></a>
                     </tr> -->
@@ -186,35 +230,25 @@
 	        			<td style="width: 24%"><b>Survey Name: </b></td>
 	        			<td><?php echo $data[0]['survey_name']?></td>
 	        			<td><b>Date Created: </b></td>
-	        			<td><?php echo $data[0]['survey_date_created']?></td>
+	        			<td><?php echo date("F d, Y",strtotime($data[0]['survey_date_created'])) ?></td>
 	        		</tr>	        		
 	        	</table>
-
+	        	<table class="table table-bordered for_print">
+	        		<td><b>Survey Name: </b></td>
+	        		<td><?php echo $data[0]['survey_name']?></td>
+	        		<td><b>Date Created: </b></td>
+	        		<td><?php echo date("F d, Y",strtotime($data[0]['survey_date_created'])) ?></td>
+	        	</table>
                 <div class="w3-container" id="resp-container">
 					<?php
-
-						// $questions_cnt = 0;
-
-						// if ($data[0]['respond'] != null)
-						// 	$questions_cnt = count(json_decode($data[0]['respond']));
-
-						// for($i=0; $i<$questions_cnt; $i++) {
-						// 	print('<div class="w3-panel w3-card-2">');
-						// 	print('<div class="radio">');
-						// 	printf('<label class="sort_number" style="font-size: 1.5em">%s</label>', $i+1);
-						// 	print('</div>');
-						// 	printf('<canvas id="myChart_%s" width="600" height="250"></canvas>', $i+1);
-						// 	printf('<div id="resp_%s" class="w3-center"></div>', $i+1);
-                    	// 	print('</div>');
-						// }
-
+		
 						if ($data[0]['respond'] != null) {
 							$respond = json_decode($data[0]['respond']);							
 							$i = 0;
 
 							foreach($respond as $resp) {
 								if ($resp->type != "long_answer" && $resp->type != "short_answer") {
-									print('<div class="w3-panel w3-card-2">');
+									print('<div class="w3-panel w3-card-2 question_container">');
 									print('<div class="radio">');
 									printf('<label class="sort_number" style="font-size: 1.5em">%s</label>', $i+1);
 									print('</div>');
@@ -235,6 +269,8 @@
       	</div>
     </div>
 </body>
+
+
 </html>
 
 <script type="text/javascript">   	
@@ -340,86 +376,7 @@
 		.catch(function(error) {
 			// This is where you run code if the server returns any errors
 		});
+
+		$("#resp-container").clone();
 	}
-
-	// window.onload = function() {
-	// 	var ctx = $('#myChart');
-	// 	window.myPie = new Chart(ctx, config);
-	// };
-
-	// var randomScalingFactor = function() {
-	// 	return Math.round(Math.random() * 100);
-	// };
-
-	// var config = {
-	// 	type: 'pie',
-	// 	data: {
-	// 		datasets: [{
-	// 			data: [
-	// 				randomScalingFactor(),
-	// 				randomScalingFactor(),
-	// 			],
-	// 			backgroundColor: [
-	// 				window.chartColors.green,
-	// 				window.chartColors.blue,
-	// 				window.chartColors.red,
-	// 				window.chartColors.orange,
-	// 				window.chartColors.yellow,
-	// 			],
-	// 			label: 'Dataset 1'
-	// 		}],
-	// 		labels: [
-	// 			'YES',
-	// 			'NO',
-	// 		]
-	// 	},
-	// 	options: {
-	// 		responsive: false,
-	// 		layout: {
-	// 			padding: {
-	// 				left: 0,
-	// 				right: 0,
-	// 				top: 0,
-	// 				bottom: 10
-	// 			}
-	// 		}
-	// 	}
-	// };
-
-	
-
-	// Morris.Donut({
-	// 	element: 'donut-example',
-	// 	data: [
-	// 		{label: "Download Sales", value: 12},
-	// 		{label: "In-Store Sales", value: 30},
-	// 		{label: "Mail-Order Sales", value: 20}
-	// 	]
-	// });
-
-	// Morris.Bar({
-	// 	element: 'bar-example',
-	// 	data: [
-	// 		{ y: '2006', a: 100, b: 90 },
-	// 		{ y: '2007', a: 75,  b: 65 },
-	// 		{ y: '2008', a: 50,  b: 40 },
-	// 		{ y: '2009', a: 75,  b: 65 },
-	// 		{ y: '2010', a: 50,  b: 40 },
-	// 		{ y: '2011', a: 75,  b: 65 },
-	// 		{ y: '2012', a: 100, b: 90 }
-	// 	],
-	// 	xkey: 'y',
-	// 	ykeys: ['a', 'b'],
-	// 	labels: ['Series A', 'Series B']
-	// });
-
-	// Morris.Donut({
-	// 	element: 'donut-example2',
-	// 	data: [
-	// 		{label: "Download Sales", value: 12},
-	// 		{label: "In-Store Sales", value: 30},
-	// 		{label: "Mail-Order Sales", value: 20}
-	// 	]
-	// });
-
 </script>

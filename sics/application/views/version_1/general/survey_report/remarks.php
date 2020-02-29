@@ -168,6 +168,57 @@
 		canvas{
 			margin: 0 auto;
 		}
+
+		.question_container{
+			border: 2px solid black;
+			margin-bottom: 20px;
+			page-break-inside: avoid;
+		}
+		.question_container .radio{
+			margin: 0;
+			background-color: rgb(100,100,100);
+			color: white;
+		}
+		.w3-center{
+			color: white;
+
+			background-color: rgb(72, 159, 72);
+		}
+		.w3-center h4{
+			margin: 0;
+			padding:10px;
+		}
+
+		.for_print{
+			display: none;
+		}
+		li{
+			list-style-type: circle;
+		}
+
+		@media print {
+			.left {
+				display: none;
+			}
+			.right, .right * {
+				visibility: visible;
+				display: block;
+				width: auto;
+				height: auto;
+				overflow: visible;
+			}
+			.for_print{
+				display: block;
+			}
+			.for_display{
+				display: none;
+			}
+			li{
+				list-style-type: circle;
+				margin-bottom: 10px;
+			}
+
+		}
     </style>
 </head>
 <body style="margin: 0">
@@ -186,7 +237,7 @@
 	        			<td style="width: 24%"><b>Survey Name: </b></td>
 	        			<td><?php echo $data[0]['survey_name']?></td>
 	        			<td><b>Date Created: </b></td>
-	        			<td><?php echo $data[0]['survey_date_created']?></td>
+	        			<td><?php echo date("F d, Y",strtotime($data[0]['survey_date_created'])) ?></td>
 	        		</tr>	        		
 	        	</table>
 
@@ -198,7 +249,7 @@
 
 							foreach($respond as $resp) {
 								if ($resp->type == "long_answer" || $resp->type == "short_answer") {
-									print('<div class="w3-panel w3-card-2">');
+									print('<div class="w3-panel w3-card-2 question_container">');
 									print('<div class="radio">');
 									printf('<label class="sort_number" style="font-size: 1.5em">%s</label>', $idx+1);
 									print('</div>');
