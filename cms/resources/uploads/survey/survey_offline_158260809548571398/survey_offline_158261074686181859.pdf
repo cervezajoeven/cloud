@@ -1,0 +1,68 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 25, 2020 at 01:07 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `cms`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `survey`
+--
+
+CREATE TABLE `survey` (
+  `id` varchar(255) NOT NULL,
+  `survey_file` varchar(255) NOT NULL,
+  `account_id` int(255) NOT NULL,
+  `survey_name` varchar(255) NOT NULL,
+  `sheet` longtext CHARACTER SET utf8 DEFAULT NULL,
+  `assigned` varchar(255) DEFAULT '0',
+  `company_owner` int(255) NOT NULL,
+  `status` tinyint(1) DEFAULT 1,
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
+  `date_created` datetime DEFAULT current_timestamp(),
+  `date_read` datetime DEFAULT NULL,
+  `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `date_deleted` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `survey`
+--
+
+INSERT INTO `survey` (`id`, `survey_file`, `account_id`, `survey_name`, `sheet`, `assigned`, `company_owner`, `status`, `deleted`, `date_created`, `date_read`, `date_updated`, `date_deleted`) VALUES
+('survey_offline_158219934492011957', '', 623, 'Test', '[{\"type\":\"multiple_choice\",\"option_labels\":\"Agree,Disagree\",\"correct\":\"0,1\"},{\"type\":\"short_answer\",\"option_labels\":\"\",\"correct\":\"\"},{\"type\":\"long_answer\",\"option_labels\":\"\",\"correct\":\"\"},{\"type\":\"multiple_answer\",\"option_labels\":\"corona,sars,h1n1,yeeeah\",\"correct\":\"\"}]', '0', 2, 1, 1, '2020-02-20 19:49:04', NULL, '2020-02-25 08:07:00', NULL),
+('survey_offline_158258521579381768', '', 623, 'Survey Test', '[{\"type\":\"multiple_choice\",\"option_labels\":\"1-2 a week,3-4 a week,everyday,never\"},{\"type\":\"multiple_choice\",\"option_labels\":\"Yes,No\"},{\"type\":\"multiple_choice\",\"option_labels\":\"Lesson,Quiz/Test,LAS,Assignment,Announcement,All\"},{\"type\":\"multiple_choice\",\"option_labels\":\"YES,NO\"},{\"type\":\"long_answer\",\"option_labels\":\"\"},{\"type\":\"multiple_choice\",\"option_labels\":\"YES,NO\"},{\"type\":\"long_answer\",\"option_labels\":\"\"}]', '0', 2, 1, 0, '2020-02-25 07:00:15', NULL, '2020-02-25 08:06:51', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `survey`
+--
+ALTER TABLE `survey`
+  ADD PRIMARY KEY (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
