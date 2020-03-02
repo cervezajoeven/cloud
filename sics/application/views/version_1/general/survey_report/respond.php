@@ -210,6 +210,10 @@
 			.for_display{
 				display: none;
 			}
+			body
+			{
+			  margin: 10mm 10mm 10mm 10mm;
+			}
 
 		}
     </style>

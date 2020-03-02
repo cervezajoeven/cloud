@@ -217,6 +217,10 @@
 				list-style-type: circle;
 				margin-bottom: 10px;
 			}
+			body
+			{
+			  margin: 25mm 25mm 25mm 25mm;
+			}
 
 		}
     </style>
