@@ -13,28 +13,37 @@ class Notification extends BEN_General {
     }
 
     public function text_blast(){
-        // echo "<pre>";
-        // print_r($this->section_model->all("section"));
-        // exit();
+
         $this->data['sections'] = $this->section_model->sections();
         $this->sms_view(__FUNCTION__);
     }
 
     public function text_blast_send(){
+        echo "<pre>";
         $sms_message = $_REQUEST['sms_message'];
+        // print_r($_REQUEST);
+        $this->db->select("profile.account_id as account_id, profile.guardian_contact_number as guardian_contact_number");
+        $this->db->from('classes');
+        $this->db->where('classes.deleted', 0);
+        $this->db->where('classes.section_id', 0);
+        foreach (explode(",", $_REQUEST['recipient']) as $key => $value) {
+            $this->db->or_where('classes.section_id', $value);
+        }
+        
+        $this->db->join('profile', 'classes.account_id = profile.account_id');
 
-        // $this->db->where('account_type_id', 4);
-        $this->db->select("*");
+        $query = $this->db->get();
 
-        $the_accounts = $this->account_model->accounts("account");
+        $the_accounts = $query->result_array();
 
         foreach ($the_accounts as $key => $value) {
             $data = array(
-                'account_id' => $value['id'],
+                'account_id' => $value['account_id'],
                 'sms_message' => $sms_message,
                 'sms_number' => $value['guardian_contact_number'],
                 'sms_status' => "FOR SENDING",
             );
+            
             if($value['guardian_contact_number']){
                 $this->account_model->create_new("sms_notification",$data);    
             }
