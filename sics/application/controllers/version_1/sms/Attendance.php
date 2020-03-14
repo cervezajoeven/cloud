@@ -16,7 +16,7 @@ class Attendance extends BEN_General {
 
     public function log($account_id=15) {
         $this->toggled = array("attendance","attendance_log");
-
+        
         if($account_id != 0) {            
             $this->data['all_data'] = $this->attendance_model->log($account_id);
         }
@@ -51,11 +51,16 @@ class Attendance extends BEN_General {
     public function autocomplete_user() {
         $returnData = array();
         $results = array('error' => false, 'data' => '');
-
-        //$name = $this->uri->segment('5');
-        // $start_date = $this->uri->segment('6');
-        $name = $_POST['search'];        
-        $users = $this->attendance_model->get_names($name);
+        // echo "<pre>";
+        
+        $name = $_POST['search'];
+        if($this->session->userdata('account_type_id') == 4){
+            $users = $this->attendance_model->get_students($name);
+        }else{
+            $users = $this->attendance_model->get_names($name);
+        }    
+        // print_r($users);
+        // exit;
 
         if(empty($name)) 
             $results['error'] = true;
