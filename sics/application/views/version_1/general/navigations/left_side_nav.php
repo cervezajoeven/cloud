@@ -369,6 +369,22 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="<?php if(in_array('attendance', $general_class->toggled)): echo 'active'; endif; ?>">
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons" style="color: violet">person</i>
+                                    <span>Attendance</span>
+                                </a>
+                                <ul class="ml-menu">
+
+                                    <li class="<?php if(in_array('quiz_packages', $general_class->toggled)): echo 'active'; endif; ?>">
+                                        <a href="<?php echo $general_class->ben_link('sms/attendance/log')?>" class="<?php if(in_array('attendance_log', $general_class->toggled)): echo 'toggled'; endif; ?>">
+                                            <span>Logs</span>
+                                        </a>
+                                    </li>
+
+                                    
+                                </ul>
+                            </li>
 
                     <?php endif; ?>
                     
